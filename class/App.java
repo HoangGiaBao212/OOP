@@ -19,7 +19,10 @@ public class App {
 
     public static void main(String[] args) {
         init();
-        start();
+        // start();
+        SalaryManager salaryManager = new SalaryManager();
+        salaryManager.inputList();
+        salaryManager.outputList();
         end();
     }
 }

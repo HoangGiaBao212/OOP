@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class InternEmployee extends Employee {
     static Scanner scanner = new Scanner(System.in);
 
+    private final Long baseSalary = (long) 550000;
+    private final int overtimeSalary = 25000;
+
     public InternEmployee() {
     }
 
