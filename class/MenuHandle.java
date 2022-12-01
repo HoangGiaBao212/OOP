@@ -110,6 +110,10 @@ public class MenuHandle {
                 case 3 -> option("Salary");
                 case 4 -> option("Department");
                 case 5 -> {
+                    clearScreen();
+                    login();
+                }
+                case 6 -> {
                     MenuContent.noteBye();
                     break;
                 }
@@ -118,7 +122,7 @@ public class MenuHandle {
                     break;
                 }
             }
-        } while (option < 1 || option > 5);
+        } while (option < 1 || option > 6);
     }
 
     public static void option(String title) {
@@ -202,6 +206,11 @@ public class MenuHandle {
                     break;
                 }
                 case 9 -> {
+                    clearScreen();
+                    login();
+                    break;
+                }
+                case 10 -> {
                     MenuContent.noteBye();
                     break;
                 }

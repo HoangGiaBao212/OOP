@@ -17,8 +17,10 @@ public class MenuContent {
         System.out.printf("\n     | %19s %-20s|", " 4. Edit Information", title);
         System.out.printf("\n     | %9s %-30s|", " 5. Delete", title);
         System.out.printf("\n     | %21s %-18s|", " 6. Search Information", title);
+        System.out.printf("\n     |  %10s %-21s|", "7. Statistics Data", title);
         System.out.println("\n     |  8. Back to previous menu                |");
-        System.out.println("     |  9. Exit                                 |");
+        System.out.println("     |  9. Logout                               |");
+        System.out.println("     |  10. Exit                                |");
         System.out.println("     --------------------------------------------");
     }
 
@@ -35,7 +37,9 @@ public class MenuContent {
         System.out.println("     ---------------------------------");
         System.out.println("     | 4. Department Manager         |");
         System.out.println("     ---------------------------------");
-        System.out.println("     | 5. Exit                       |");
+        System.out.println("     | 5.Log Out                     |");
+        System.out.println("     ---------------------------------");
+        System.out.println("     | 6. Exit                       |");
         System.out.println("     ---------------------------------");
     }
 

@@ -206,8 +206,10 @@ public class ContractManager implements RoleOfManager {
                         MenuHandle.listAccount[i].getEmployee().getAge(),
                         MenuHandle.listAccount[i].getEmployee().getPhone(),
                         MenuHandle.listAccount[i].getEmployee().getEmail(),
-                        MenuHandle.listAccount[i].getEmployee().getContract().getTimeStart(),
-                        MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd());
+                        new SimpleDateFormat("dd/MM/yyyy")
+                                .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeStart()),
+                        new SimpleDateFormat("dd/MM/yyyy")
+                                .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd()));
                 System.out.println(
                         "---------------------------------------------------------------------------------------------------------------------------------");
                 check = true;
