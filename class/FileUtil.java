@@ -47,13 +47,13 @@ public class FileUtil {
     }
 
     private static void readFileAccount() {
-        Handle.n = -1;
+        MenuHandle.n = -1;
         try {
             FileReader fr = new FileReader(listAccountTxt);
             try (BufferedReader br = new BufferedReader(fr)) {
                 String line = "";
                 while (true) {
-                    Handle.n++;
+                    MenuHandle.n++;
                     line = br.readLine();
                     if (line == null) {
                         break;
@@ -72,18 +72,18 @@ public class FileUtil {
                     if (position.equals("Chief Of Department")) {
                         Employee employee = new ChiefDepartment(idEmp, position, name, age, gender, email, address,
                                 phone);
-                        Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
-                        Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                        MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
+                        MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
                     } else if (position.equals("Official Employee")) {
                         Employee employee = new OfficialEmployee(idEmp, position, name, age, gender, email, address,
                                 phone);
-                        Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
-                        Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                        MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
+                        MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
                     } else if (position.equals("Intern Employee")) {
                         Employee employee = new InternEmployee(idEmp, position, name, age, gender, email, address,
                                 phone);
-                        Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
-                        Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                        MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
+                        MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
                     }
                 }
             }
@@ -95,8 +95,8 @@ public class FileUtil {
         try {
             FileWriter fw = new FileWriter(listAccountTxt);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (int i = 0; i < Handle.n; i++) {
-                bw.write(Handle.listAccount[i].toString());
+            for (int i = 0; i < MenuHandle.n; i++) {
+                bw.write(MenuHandle.listAccount[i].toString());
                 bw.newLine();
             }
             bw.close();
@@ -182,8 +182,8 @@ public class FileUtil {
                     Contract contract = new Contract(contractId, timeStart, timeEnd);
 
                     while (true) {
-                        if (Handle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
-                            Handle.listAccount[i].getEmployee().setContract(contract);
+                        if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
+                            MenuHandle.listAccount[i].getEmployee().setContract(contract);
                             break;
                         }
                         i++;
@@ -199,11 +199,11 @@ public class FileUtil {
         try {
             FileWriter fw = new FileWriter(listContractTxt);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (int i = 0; i < Handle.n; i++) {
-                if (Handle.listAccount[i].getEmployee().getContract() != null) {
-                    bw.write(Handle.listAccount[i].getEmployee().getIdEmp() + "-"
-                            + Handle.listAccount[i].getEmployee().getName() + "-"
-                            + Handle.listAccount[i].getEmployee().getContract().toString());
+            for (int i = 0; i < MenuHandle.n; i++) {
+                if (MenuHandle.listAccount[i].getEmployee().getContract() != null) {
+                    bw.write(MenuHandle.listAccount[i].getEmployee().getIdEmp() + "-"
+                            + MenuHandle.listAccount[i].getEmployee().getName() + "-"
+                            + MenuHandle.listAccount[i].getEmployee().getContract().toString());
                     bw.newLine();
                 }
             }
@@ -214,13 +214,13 @@ public class FileUtil {
     }
 
     private static void readFileDepartment() {
-        Handle.m = -1;
+        MenuHandle.m = -1;
         try {
             FileReader fr = new FileReader(listDepartmentTxt);
             try (BufferedReader br = new BufferedReader(fr)) {
                 String line = "";
                 while (true) {
-                    Handle.m++;
+                    MenuHandle.m++;
                     line = br.readLine();
                     if (line == null) {
                         break;
@@ -235,7 +235,7 @@ public class FileUtil {
                     for (int i = 0; i < members; i++) {
                         idEmployee[i] = txt[i + 4];
                     }
-                    Handle.listDepartments[Handle.m] = new Department(departmentId,
+                    MenuHandle.listDepartments[MenuHandle.m] = new Department(departmentId,
                             departmentName, idChief, members,
                             idEmployee);
                 }
@@ -248,8 +248,8 @@ public class FileUtil {
         try {
             FileWriter fw = new FileWriter(listDepartmentTxt);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (int i = 0; i < Handle.m; i++) {
-                bw.write(Handle.listDepartments[i].toString());
+            for (int i = 0; i < MenuHandle.m; i++) {
+                bw.write(MenuHandle.listDepartments[i].toString());
                 bw.newLine();
             }
             bw.close();

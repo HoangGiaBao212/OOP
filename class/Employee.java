@@ -36,7 +36,7 @@ class Employee extends Worker implements InOut {
     }
 
     public void setIdEmp(String idEmp) {
-        idEmp = Handle.inputId(idEmp);
+        idEmp = MenuHandle.inputId(idEmp);
         this.idEmp = idEmp;
     }
 

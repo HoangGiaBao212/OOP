@@ -9,8 +9,8 @@ public class App {
     }
 
     public static void start() {
-        Handle.clearScreen();
-        Handle.login();
+        MenuHandle.clearScreen();
+        MenuHandle.login();
     }
 
     public static void end() {

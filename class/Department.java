@@ -26,7 +26,7 @@ public class Department {
     }
 
     public void setDepartmentId(String departmentId) {
-        departmentId = Handle.inputId("D");
+        departmentId = MenuHandle.inputId("D");
         this.departmentId = departmentId;
     }
 
@@ -51,10 +51,10 @@ public class Department {
     public void setMembers(int members) {
         if (members <= 0) {
             System.out.print("Enter the amount of members: ");
-            members = Handle.getInputNumber();
+            members = MenuHandle.getInputNumber();
             while (members < 0 && members >= 5) {
                 System.out.print("Members must greater than 0 and less or equal to 5.Please enter again: ");
-                members = Handle.getInputNumber();
+                members = MenuHandle.getInputNumber();
             }
         }
         this.members = members;
@@ -66,7 +66,7 @@ public class Department {
 
     public void setIdChief(String idChief) {
         System.out.print("Input id chief :");
-        idChief = Handle.inputId("CD");
+        idChief = MenuHandle.inputId("CD");
 
         this.idChief = idChief;
     }
@@ -81,7 +81,7 @@ public class Department {
         for (int i = 0; i < members; i++) {
             System.out.print(" ==> Enter id of employee number: " + i);
             idEmployee[i] = new String();
-            idEmployee[i] = Handle.inputId("E");
+            idEmployee[i] = MenuHandle.inputId("E");
         }
         this.idEmployee = idEmployee;
     }

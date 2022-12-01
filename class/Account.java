@@ -28,7 +28,7 @@ public class Account implements InOut {
     }
 
     public void setUsername(String username) {
-        username = Handle.getUsername();
+        username = MenuHandle.getUsername();
         this.username = username;
     }
 
@@ -37,7 +37,7 @@ public class Account implements InOut {
     }
 
     public void setPassword(String password) {
-        password = Handle.getPassword();
+        password = MenuHandle.getPassword();
         this.password = password;
     }
 

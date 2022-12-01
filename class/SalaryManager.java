@@ -45,7 +45,7 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void outputList() {
-        System.out.println(Handle.n);
+        System.out.println(MenuHandle.n);
         System.out.println(
                 "---------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("|  %-10s|  %-20s|  %-20s|  %-20s|  %-20s|  %-20s|", "ID",
@@ -73,7 +73,7 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void statistics() {
-        MenuContent.quantityCount("Salary", Handle.n);
+        MenuContent.quantityCount("Salary", MenuHandle.n);
     }
 
     @Override

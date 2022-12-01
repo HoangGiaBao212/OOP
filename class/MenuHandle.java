@@ -2,7 +2,7 @@ import java.io.Console;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Handle {
+public class MenuHandle {
     static Scanner scanner = new Scanner(System.in);
 
     static int n = -1;
@@ -15,7 +15,7 @@ public class Handle {
     static DepartmentManager listDepartment = new DepartmentManager();
     static AccountList listAccounts = new AccountList();
 
-    private Handle() {
+    private MenuHandle() {
     }
 
     // lấy id từ department
@@ -24,7 +24,7 @@ public class Handle {
     }
 
     public static boolean checkIdEmployee(String id) {
-        for (int i = 0; i < Handle.n; i++) {
+        for (int i = 0; i < MenuHandle.n; i++) {
             if (listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(id)) {
                 return true;
             }
@@ -303,11 +303,11 @@ public class Handle {
                     iForChiefDepartment(idEmp);
                 }
                 case 3 -> {
-                    if (Handle.m < 0) {
-                        for (int i = 0; i < Handle.m; i++) {
-                            for (int j = 0; j < Handle.listDepartments[i].getMembers(); j++) {
-                                if (Handle.listDepartments[i].getIdEmployee()[j].equalsIgnoreCase(idEmp)) {
-                                    listDepartment.edit(Handle.listDepartments[i].getDepartmentId());
+                    if (MenuHandle.m < 0) {
+                        for (int i = 0; i < MenuHandle.m; i++) {
+                            for (int j = 0; j < MenuHandle.listDepartments[i].getMembers(); j++) {
+                                if (MenuHandle.listDepartments[i].getIdEmployee()[j].equalsIgnoreCase(idEmp)) {
+                                    listDepartment.edit(MenuHandle.listDepartments[i].getDepartmentId());
                                 }
                             }
                         }
