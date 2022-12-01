@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "7OOP-T_6fdfca30"
+        },
+        {
+            "type": "java",
             "name": "Launch Splender",
             "request": "launch",
             "mainClass": "Splender",

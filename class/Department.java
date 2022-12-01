@@ -49,7 +49,7 @@ public class Department {
     }
 
     public void setMembers(int members) {
-        if (members < 0) {
+        if (members <= 0) {
             System.out.print("Enter the amount of members: ");
             members = Handle.getInputNumber();
             while (members < 0 && members >= 5) {
@@ -66,7 +66,8 @@ public class Department {
 
     public void setIdChief(String idChief) {
         System.out.print("Input id chief :");
-        idChief = Handle.inputId(idChief);
+        idChief = Handle.inputId("CD");
+
         this.idChief = idChief;
     }
 
@@ -88,14 +89,14 @@ public class Department {
     public void input() {
         setDepartmentId(departmentId);
         setDepartmentName(departmentName);
+        setIdChief(idChief);
         setMembers(members);
         setIdEmployee(idEmployee);
     }
 
     public void output() {
         System.out.println("--------------------------------------------------------------------------------");
-        System.out.printf("\n     %-15s|     %-15s|     %-15s     %-15s", departmentId, departmentName, idChief,
-                idChief);
+        System.out.printf("\n     %-15s|     %-15s|     %-15s", departmentId, departmentName, idChief);
         System.out.println("--------------------------------------------------------------------------------");
 
         for (int i = 0; i < members; i++) {
@@ -106,7 +107,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return departmentId + "-" + departmentName + "-" + members + "-" + idChief + "-" + toStringArray();
+        return departmentId + "-" + departmentName + "-" + idChief + "-" + members + toStringArray();
     }
 
     public String toStringArray() {

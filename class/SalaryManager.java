@@ -12,6 +12,10 @@ public class SalaryManager implements RoleOfManager {
     // indexSalary*baseSalary*26 + giolamthem*luonglamthem - baseSalary*someHolidays
 
     /*
+     * 0 là năm
+     * 1-> 12 thánh (lương)
+     * 13
+     * 14->25
      * int yearCount = 1;
      * for (int i=1;;i++){
      * yearCount++;

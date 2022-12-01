@@ -5,7 +5,7 @@ public class App {
     static Scanner scanner = new Scanner(System.in);
 
     public static void init() {
-        // FileUtil.getData();
+        FileUtil.getData();
     }
 
     public static void start() {
@@ -14,13 +14,12 @@ public class App {
     }
 
     public static void end() {
-        // FileUtil.setData();
+        FileUtil.setData();
     }
 
     public static void main(String[] args) {
-        // init();
+        init();
         // start();
-        // end();
         // String[] chuoi = new String[100];
         // chuoi = Arrays.copyOf(chuoi, 0);
         // chuoi[0] = new String();
@@ -28,7 +27,9 @@ public class App {
         // chuoi[0] = str;
         // System.out.println(chuoi[0]);
         DepartmentManager departmentManager = new DepartmentManager();
-        departmentManager.inputList();
+        // departmentManager.inputList();
+        departmentManager.outputList();
+        end();
         // System.out.println(5);
     }
 }
