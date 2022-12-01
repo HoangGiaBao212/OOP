@@ -51,7 +51,6 @@ public class AccountList implements RoleOfManager {
     @Override
     public void outputList() {
         // Output new list account
-        Handle.n = 1;
         System.out.println(
                 "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("|     %-15s|     %-15s|  %-10s|  %-20s|  %-20s|  %-10s|  %-10s|  %-30s|  %-20s|  %-20s|",
