@@ -10,9 +10,14 @@ public class InternEmployee extends Employee {
         super(idEmp, position);
     }
 
-    public InternEmployee(String name, int age, String gender, String email, String address, String phone,
-            Long[] salaryDiary, String idEmp, String position, Contract contract) {
-        super(name, age, gender, email, address, phone, salaryDiary, idEmp, position, contract);
+    public InternEmployee(String idEmp, String position, String name, int age, String gender, String email,
+            String address, String phone) {
+        super(idEmp, position, name, age, gender, email, address, phone);
+    }
+
+    public InternEmployee(String name, int age, String gender, String email, String address, String phone, String idEmp,
+            String position, Contract contract) {
+        super(name, age, gender, email, address, phone, idEmp, position, contract);
     }
 
     @Override
@@ -28,5 +33,11 @@ public class InternEmployee extends Employee {
     @Override
     public double netSalary(String idEmp) {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Official Employee" + "-" + getIdEmp() + "-" + getPosition() + "-" + getName() + "-" + getAge() + "-"
+                + getGender() + "-" + getEmail() + "-" + getAddress() + "-" + getPhone();
     }
 }

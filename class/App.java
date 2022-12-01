@@ -26,9 +26,14 @@ public class App {
         // String str = scanner.nextLine();
         // chuoi[0] = str;
         // System.out.println(chuoi[0]);
-        DepartmentManager departmentManager = new DepartmentManager();
+        // DepartmentManager departmentManager = new DepartmentManager();
         // departmentManager.inputList();
-        departmentManager.outputList();
+        // departmentManager.outputList();
+        AccountList accountList = new AccountList();
+        // accountList.inputList();
+
+        accountList.outputList();
+        System.out.println(accountList);
         end();
         // System.out.println(5);
     }

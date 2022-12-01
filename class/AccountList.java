@@ -6,20 +6,19 @@ public class AccountList implements RoleOfManager {
 
     @Override
     public void inputList() {
-        Handle.n = 5;
         // Input new list account
-        Handle.m = 5;
         int option;
         for (int i = 0; i < Handle.m; i++) {
             Account account = new Account();
             System.out.println("Input info Chief");
             account.input();
             account.setEmployee(new ChiefDepartment(Handle.listDepartments[i].getIdChief(), "Chief Of Department"));
-            Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n);
+            Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
             Handle.listAccount[Handle.n++] = account;
             for (int j = 0; j < Handle.listDepartments[i].getMembers(); j++) {
                 MenuContent.menuOptionTypeEmployee();
                 option = scanner.nextInt();
+                Handle.listDepartments[i].getIdEmployee()[j] = new String();
                 String idEmp = Handle.listDepartments[i].getIdEmployee()[j];
                 do {
                     switch (option) {
@@ -52,6 +51,7 @@ public class AccountList implements RoleOfManager {
     @Override
     public void outputList() {
         // Output new list account
+        Handle.n = 1;
         System.out.println(
                 "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("|     %-15s|     %-15s|  %-10s|  %-20s|  %-20s|  %-10s|  %-10s|  %-30s|  %-20s|  %-20s|",

@@ -16,15 +16,16 @@ class Employee extends Worker implements InOut {
         this.position = position;
     }
 
-    public Employee(String idEmp, String position, Contract contract) {
+    public Employee(String idEmp, String position, String name, int age, String gender, String email, String address,
+            String phone) {
+        super(name, age, gender, email, address, phone);
         this.idEmp = idEmp;
         this.position = position;
-        this.contract = contract;
     }
 
-    public Employee(String name, int age, String gender, String email, String address, String phone, Long[] salaryDiary,
+    public Employee(String name, int age, String gender, String email, String address, String phone,
             String idEmp, String position, Contract contract) {
-        super(name, age, gender, email, address, phone, salaryDiary);
+        super(name, age, gender, email, address, phone);
         this.idEmp = idEmp;
         this.position = position;
         this.contract = contract;

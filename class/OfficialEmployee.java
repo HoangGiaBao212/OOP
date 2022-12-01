@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class OfficialEmployee extends Employee {
 
     static Scanner scanner = new Scanner(System.in);
-    private static int coefficientsSalary = 2;
 
     public OfficialEmployee() {
     }
@@ -12,9 +11,14 @@ public class OfficialEmployee extends Employee {
         super(idEmp, position);
     }
 
+    public OfficialEmployee(String idEmp, String position, String name, int age, String gender, String email,
+            String address, String phone) {
+        super(idEmp, position, name, age, gender, email, address, phone);
+    }
+
     public OfficialEmployee(String name, int age, String gender, String email, String address, String phone,
-            Long[] salaryDiary, String idEmp, String position, Contract contract) {
-        super(name, age, gender, email, address, phone, salaryDiary, idEmp, position, contract);
+            String idEmp, String position, Contract contract) {
+        super(name, age, gender, email, address, phone, idEmp, position, contract);
     }
 
     @Override
@@ -30,6 +34,12 @@ public class OfficialEmployee extends Employee {
     @Override
     public double netSalary(String idEmp) {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Official Employee" + "-" + getIdEmp() + "-" + getPosition() + "-" + getName() + "-" + getAge() + "-"
+                + getGender() + "-" + getEmail() + "-" + getAddress() + "-" + getPhone();
     }
 
 }

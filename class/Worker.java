@@ -9,10 +9,8 @@ public abstract class Worker extends Person {
         this.salaryDiary = salaryDiary;
     }
 
-    public Worker(String name, int age, String gender, String email, String address, String phone,
-            Long[] salaryDiary) {
+    public Worker(String name, int age, String gender, String email, String address, String phone) {
         super(name, age, gender, email, address, phone);
-        this.salaryDiary = salaryDiary;
     }
 
     public Long[] getSalaryDiary() {
@@ -30,7 +28,7 @@ public abstract class Worker extends Person {
 
     @Override
     public void output() {
-
+        super.output();
     }
 
     public abstract double netSalary(String idEmp);

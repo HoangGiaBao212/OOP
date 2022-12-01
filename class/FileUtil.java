@@ -33,14 +33,14 @@ public class FileUtil {
     }
 
     public static void getData() {
-        // readFileAccount();
+        readFileAccount();
         // readFileSalary();
         // readFileContract();
         readFileDepartment();
     }
 
     public static void setData() {
-        // writeFileAccount();
+        writeFileAccount();
         // writeFileSalary();
         // writeFileContract();
         writeFileDepartment();
@@ -61,17 +61,30 @@ public class FileUtil {
                     String[] txt = line.split("-");
                     String username = txt[0];
                     String password = txt[1];
-                    String idEmp = txt[2];
-                    String position = txt[3];
-                    String name = txt[4];
-                    int age = Integer.parseInt(txt[5]);
-                    String gender = txt[6];
-                    String email = txt[7];
-                    String address = txt[8];
-                    String phone = txt[9];
-                    Employee employee = new Employee(name, age, gender, email, address, phone,
-                            null, idEmp, position, null);
-                    Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                    String idEmp = txt[3];
+                    String position = txt[4];
+                    String name = txt[5];
+                    int age = Integer.parseInt(txt[6]);
+                    String gender = txt[7];
+                    String email = txt[8];
+                    String address = txt[9];
+                    String phone = txt[10];
+                    if (position.equals("Chief Of Department")) {
+                        Employee employee = new ChiefDepartment(idEmp, position, name, age, gender, email, address,
+                                phone);
+                        Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
+                        Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                    } else if (position.equals("Official Employee")) {
+                        Employee employee = new OfficialEmployee(idEmp, position, name, age, gender, email, address,
+                                phone);
+                        Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
+                        Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                    } else if (position.equals("Intern Employee")) {
+                        Employee employee = new InternEmployee(idEmp, position, name, age, gender, email, address,
+                                phone);
+                        Handle.listAccount = Arrays.copyOf(Handle.listAccount, Handle.n + 1);
+                        Handle.listAccount[Handle.n] = new Account(username, password, employee);
+                    }
                 }
             }
         } catch (Exception e) {
