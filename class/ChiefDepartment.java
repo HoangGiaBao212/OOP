@@ -4,6 +4,9 @@ public class ChiefDepartment extends Employee {
 
     static Scanner scanner = new Scanner(System.in);
 
+    private final Long baseSalary = (long) 600000;
+    private final int overtimeSalary = 50000;
+
     public ChiefDepartment() {
     }
 
@@ -32,7 +35,8 @@ public class ChiefDepartment extends Employee {
     }
 
     @Override
-    public double netSalary(String idEmp) {
+    public double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
+
         return 0;
     }
 

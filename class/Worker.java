@@ -1,3 +1,5 @@
+import java.time.Year;
+
 public abstract class Worker extends Person {
     private Long salaryDiary[];
 
@@ -31,6 +33,6 @@ public abstract class Worker extends Person {
         super.output();
     }
 
-    public abstract double netSalary(String idEmp);
+    public abstract double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month);
 
 }

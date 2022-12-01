@@ -10,7 +10,7 @@ public class MenuHandle {
     static int n = -1;
     static int m = -1;
     static Account[] listAccount = new Account[0];
-    static Department[] listDepartments = new Department[100];
+    static Department[] listDepartments = new Department[0];
 
     static ContractManager listContract = new ContractManager();
     static SalaryManager listSalary = new SalaryManager();
@@ -339,7 +339,7 @@ public class MenuHandle {
 
     public static String inputId(String id) {
         String inputId;
-        System.out.print("     - Enter id : ");
+        System.out.print("     - Enter id > ");
         inputId = scanner.nextLine();
         while (inputId.isEmpty()) {
             System.out.print("\n    Id of employee must not be left blank! Enter again:  ");
@@ -347,7 +347,7 @@ public class MenuHandle {
             inputId = inputId.toUpperCase();
         }
         while (!inputId.startsWith(id)) {
-            System.out.printf("%-25 %-5s", "\n     Employee code starting from ", id);
+            System.out.printf("%-25s %-5s", "\n     Employee code starting from ", id);
             System.out.println("\nEnter again: ");
             inputId = scanner.nextLine();
             inputId = inputId.toUpperCase();

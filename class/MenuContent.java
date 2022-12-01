@@ -74,7 +74,7 @@ public class MenuContent {
     public static void noteFailure(String title) {
         System.out.println("-------------------------------------------------");
         System.out.printf("|%-15s %-15s|", title, "failure!              ");
-        System.out.println("-------------------------------------------------");
+        System.out.println("\n-------------------------------------------------");
     }
 
     public static void noteAddSuccess() {
@@ -125,7 +125,6 @@ public class MenuContent {
     }
 
     public static void menuIForChief() {
-        // Handle.clearScreen();
         System.out.println("     ----------------------------------------------");
         System.out.println("     | 1. View Employee List Of Department        |");
         System.out.println("     ----------------------------------------------");

@@ -32,7 +32,8 @@ public class OfficialEmployee extends Employee {
     }
 
     @Override
-    public double netSalary(String idEmp) {
+    public double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
+
         return 0;
     }
 

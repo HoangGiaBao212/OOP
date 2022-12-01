@@ -74,7 +74,7 @@ class Employee extends Worker implements InOut {
     }
 
     @Override
-    public double netSalary(String idEmp) {
+    public double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
         // TODO Auto-generated method stub
         return 0;
     }

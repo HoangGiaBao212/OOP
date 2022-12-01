@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DepartmentManager implements RoleOfManager {
@@ -8,6 +9,7 @@ public class DepartmentManager implements RoleOfManager {
         MenuHandle.n = 0;
         System.out.print(" ==> Enter amount department: ");
         MenuHandle.m = MenuHandle.getInputNumber();
+        MenuHandle.listDepartments = new Department[MenuHandle.m];
         for (int i = 0; i < MenuHandle.m; i++) {
             System.out.println("-------- Enter information for department number " + (i + 1));
             MenuHandle.listDepartments[i] = new Department();
@@ -22,7 +24,10 @@ public class DepartmentManager implements RoleOfManager {
         if (MenuHandle.m < 0)
             MenuContent.printNoData();
         else {
-            System.out.printf("|%-15s|%-15s|%-15s|%-15s", "Department Id", "Department Name", "Id ChiefDepartment",
+            System.out.println(
+                    "\n--------------------------------------------------------------------------------------------------------------");
+            System.out.printf("|     %-20s|     %-20s|     %-20s|     %-25s|", "Department Id", "Department Name",
+                    "Id ChiefDepartment",
                     "Number of employee codes");
             for (int i = 0; i < MenuHandle.m; i++) {
                 MenuHandle.listDepartments[i].output();
@@ -39,11 +44,16 @@ public class DepartmentManager implements RoleOfManager {
             int amountAdd;
             System.out.print(" ==> Enter amount for department to add: ");
             amountAdd = MenuHandle.getInputNumber();
-            for (int i = MenuHandle.m; i < (MenuHandle.m + amountAdd); i++) {
+            int currentAmount = MenuHandle.m;
+            for (int i = currentAmount; i < (currentAmount + amountAdd); i++) {
                 System.out.println("-----Enter information for department");
-                MenuHandle.listDepartments[i] = new Department();
-                MenuHandle.listDepartments[i].input();
-                MenuHandle.n += MenuHandle.listDepartments[i].getMembers() + 1;
+                Department department = new Department();
+                department.input();
+                MenuHandle.n += department.getMembers() + 1;
+
+                MenuHandle.listDepartments = Arrays.copyOf(MenuHandle.listDepartments, MenuHandle.m + 1);
+                MenuHandle.listDepartments[MenuHandle.m] = department;
+                MenuHandle.m++;
             }
         }
     }
@@ -57,20 +67,22 @@ public class DepartmentManager implements RoleOfManager {
         else {
             if (idRemove == null) {
                 System.out.print(" ==> Input id department to remove: ");
-                idRemove = MenuHandle.inputId(idRemove);
+                idRemove = MenuHandle.inputId("D0");
             }
             for (int i = 0; i < MenuHandle.m; i++) {
-                if (MenuHandle.listDepartments[i].getMembers() >= 0)
-                    System.out.println("Can't remove");
-                else if (MenuHandle.listDepartments[i].getDepartmentId().equalsIgnoreCase(idRemove)) {
-                    for (int j = i; j < MenuHandle.m - 1; j++) {
-                        MenuHandle.listDepartments[j] = MenuHandle.listDepartments[j + 1];
-                        check = true;
+                if (MenuHandle.listDepartments[i].getDepartmentId().equalsIgnoreCase(idRemove)) {
+                    if (MenuHandle.listDepartments[i].getMembers() >= 0)
+                        System.out.println(" <<<< Can't remove because department has employee!!!");
+                    else {
+                        for (int j = i; j < MenuHandle.m - 1; j++) {
+                            MenuHandle.listDepartments[j] = MenuHandle.listDepartments[j + 1];
+                            check = true;
+                        }
+                        MenuHandle.listDepartments = Arrays.copyOf(MenuHandle.listDepartments, MenuHandle.m - 1);
+                        MenuHandle.m--;
                     }
                 }
             }
-            MenuHandle.listDepartments[MenuHandle.m - 1] = null;
-            MenuHandle.m--;
         }
         if (!check)
             MenuContent.noteFailure("Remove");
