@@ -32,7 +32,7 @@ public class ContractManager implements RoleOfManager {
         MenuHandle.clearScreen();
         System.out.println("Output the List of Contract\n");
         // System.out.println(Handle.n);
-        if (MenuHandle.n == 0) {
+        if (MenuHandle.n < 0) {
             MenuContent.printNoData();
         } else {
             System.out.println(
