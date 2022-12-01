@@ -1,4 +1,6 @@
 import java.io.Console;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -220,7 +222,7 @@ public class MenuHandle {
         System.out.println("|                                Login                             |");
         System.out.println("--------------------------------------------------------------------");
         username = getUsername();
-        System.out.println("Enter ");
+        System.out.print("==> Enter password: ");
         password = hidePassword();
         for (int i = 0; i < n; i++) {
             if (username.equals(listAccount[i].getUsername()) && password.equals(listAccount[i].getPassword())) {
@@ -243,24 +245,7 @@ public class MenuHandle {
             login();
         }
     }
-
-    // private static void permission(Account account) {
-    // for (int i = 0; i < n; i++) {
-    // if
-    // (account.getEmployee().getIdEmp().equals(listAccount[i].getEmployee().getIdEmp()))
-    // {
-    // if (listAccount[i].getEmployee().getPosition().equals("Chief Of Department"))
-    // {
-    // iForChiefDepartment(listAccount[i].getEmployee().getIdEmp());
-    // } else if (listAccount[i].getEmployee().getPosition().equals("Intern
-    // Employee")
-    // || listAccount[i].getEmployee().getPosition().equals("Official Employee")) {
-    // iForEmployee(listAccount[i].getEmployee().getIdEmp());
-    // }
-    // }
-    // }
-    // }
-
+    
     public static void iForEmployee(String idEmp) {
         int choice;
         MenuContent.menuIForEmployee();
@@ -360,7 +345,25 @@ public class MenuHandle {
         }
         return inputId;
     }
-
+    public static Date getInputDate() {
+        Date date = null;
+        String strDate = "";
+        SimpleDateFormat dateInput = new SimpleDateFormat("dd-MM-yyyy");
+        while (date == null) {
+            strDate = scanner.nextLine();
+            try {
+                date = dateInput.parse(strDate);
+                // if (!strDate.equals(new SimpleDateFormat("dd-MM-yyyy").format(date))) {
+                //     date = null;
+                //     System.out.println("Input Wrong!!!");
+                // }
+                // System.out.println(date);
+            } catch (Exception e) {
+                System.out.println("Input Wrong!!!");
+            }
+        }
+        return date;
+    }
 }
 
 // Đăng nhập với tư cách nhân viên xem thông tin cá nhân,xem ds nhân viên,xem ds

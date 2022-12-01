@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ContractManager implements RoleOfManager {
@@ -35,24 +36,26 @@ public class ContractManager implements RoleOfManager {
             MenuContent.printNoData();
         } else {
             System.out.println(
-                    "-------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("|    %-15s|   %-20s|   %-10s|   %-10s|   %-15s|    %-25s|   %-10s|    %-10s|",
+                    "------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("|    %-15s|   %-20s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|",
                     "Contract ID", "Name", "Gender", "Age", "Phone number", "Email", "Time start", "Time end");
             System.out.println();
             System.out.println(
-                    "-------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    "------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (int i = 0; i < MenuHandle.n; i++) {
-                System.out.printf("|    %-15s|   %-20s|   %-10s|   %-10s|   %-15s|    %-25s|   %-10s|    %-10s|\n",
+                System.out.printf("|    %-15s|   %-20s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|\n",
                         MenuHandle.listAccount[i].getEmployee().getContract().getContractID(),
                         MenuHandle.listAccount[i].getEmployee().getName(),
                         MenuHandle.listAccount[i].getEmployee().getGender(),
                         MenuHandle.listAccount[i].getEmployee().getAge(),
                         MenuHandle.listAccount[i].getEmployee().getPhone(),
                         MenuHandle.listAccount[i].getEmployee().getEmail(),
-                        MenuHandle.listAccount[i].getEmployee().getContract().getTimeStart(),
-                        MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd());
+                        new SimpleDateFormat("dd/MM/yyyy")
+                                .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeStart()),
+                        new SimpleDateFormat("dd/MM/yyyy")
+                                .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd()));
                 System.out.println(
-                        "-------------------------------------------------------------------------------------------------------------------------------------------------------");
+                        "------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
     }

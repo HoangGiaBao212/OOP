@@ -2,7 +2,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 public class FileUtil {
 
@@ -177,10 +179,16 @@ public class FileUtil {
                     String[] txt = line.split("-");
                     String idEmp = txt[0];
                     String contractId = txt[2];
-                    String timeStart = txt[3];
-                    String timeEnd = txt[4];
-                    Contract contract = new Contract(contractId, timeStart, timeEnd);
-
+                    SimpleDateFormat dateInput = new SimpleDateFormat("dd/MM/yyyy");
+                    Date timeStart = null;
+                    Date timeEnd = null;
+                    try {
+                        timeStart =  dateInput.parse(txt[3]);
+                        timeEnd = dateInput.parse(txt[4]);
+                    } catch (Exception e) {
+                        
+                    }
+                    Contract contract = new Contract(contractId,timeStart, timeEnd);
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
                             MenuHandle.listAccount[i].getEmployee().setContract(contract);

@@ -1,21 +1,19 @@
-import java.sql.Date;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class Contract {
+public class Contract implements InOut {
     Scanner sc = new Scanner(System.in);
 
     private String contractID;
-    private String timeStart;
-    private String timeEnd;
-
+    // private String timeStart;
+    // private String timeEnd;
+    private Date timeStart;
+    private Date timeEnd;
     public Contract() {
-        timeStart = "";
-        timeEnd = "";
-        contractID = "";
     }
 
-    public Contract(String contractID, String timeStart, String timeEnd) {
+    public Contract(String contractID, Date timeStart, Date timeEnd) {
         this.contractID = contractID;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
@@ -39,49 +37,43 @@ public class Contract {
         this.contractID = contractID;
     }
 
-    public String getTimeStart() {
-        return this.timeStart;
+    public Date getTimeStart() {
+        return timeStart;
     }
-
-    public void setTimeStart(String timeStart) {
-        System.out.print("Enter time start follow the format(YYYY/MM/DD): ");
-        timeStart = sc.nextLine();
-        while (timeStart.isEmpty()) {
-            System.out.print("Don't leave it empty.Please enter: ");
-            timeStart = sc.nextLine();
-        }
+    public void setTimeStart(Date timeStart){
         this.timeStart = timeStart;
     }
-
-    public String getTimeEnd() {
-        return this.timeEnd;
+    public Date getTimeEnd() {
+        return timeEnd;
     }
-
-    public void setTimeEnd(String timeEnd) {
-        System.out.print("Enter time end follow the format(YYYY/MM/DD): ");
-        timeEnd = sc.nextLine();
-        while (timeEnd.isEmpty()) {
-            System.out.print("Don't leave it empty.Please enter: ");
-            timeEnd = sc.nextLine();
-        }
+    public void setTimeEnd(Date timeEnd){
         this.timeEnd = timeEnd;
     }
-
+    @Override
     public void input() {
         setContractID(contractID);
-        setTimeStart(timeStart);
-        setTimeEnd(timeEnd);
+        System.out.print("Enter time Start: ");
+        setTimeStart(MenuHandle.getInputDate());
+        do{
+            System.out.print("Enter time End: ");
+            setTimeEnd(MenuHandle.getInputDate());
+            if(timeEnd.after(timeStart) == false){
+                System.out.println("Time End incorrect");
+            }
+
+        }while(timeEnd.after(timeStart) == false);
     }
 
+    @Override
     public void output() {
         System.out.printf("|   %-15s|", contractID);
         // super.output();
-        System.out.printf("    %-15s|   %-15s", timeStart, timeEnd);
+        System.out.printf("    %-15s|   %-15s", new SimpleDateFormat("dd/MM/yyyy").format(timeStart), new SimpleDateFormat("dd/MM/yyyy").format(timeEnd));
     }
 
     @Override
     public String toString() {
-        return getContractID() + "-" + getTimeStart() + "-" + getTimeEnd();
+        return getContractID() + "-" + new SimpleDateFormat("dd/MM/yyyy").format(timeStart) + "-" + new SimpleDateFormat("dd/MM/yyyy").format(timeEnd);
     }
 
 }
