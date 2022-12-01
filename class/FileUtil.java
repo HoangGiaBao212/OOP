@@ -86,6 +86,11 @@ public class FileUtil {
                                 phone);
                         MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                         MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
+                    } else{
+                        Employee employee = new Employee(idEmp, position, name, age, gender, email, address,phone);
+                        MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
+                        MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
+                        
                     }
                 }
             }

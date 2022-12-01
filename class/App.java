@@ -19,26 +19,7 @@ public class App {
 
     public static void main(String[] args) {
         init();
-        // start();
-        // String[] chuoi = new String[100];
-        // chuoi = Arrays.copyOf(chuoi, 0);
-        // chuoi[0] = new String();
-        // String str = scanner.nextLine();
-        // chuoi[0] = str;
-        // System.out.println(chuoi[0]);
-        // DepartmentManager departmentManager = new DepartmentManager();
-        // departmentManager.inputList();
-        // departmentManager.outputList();
-        AccountList accountList = new AccountList();
-        // accountList.inputList();
-        accountList.add();
-        accountList.outputList();
-        accountList.remove(null);
-
-        accountList.outputList();
-        // System.out.println(accountList);
-
+        start();
         end();
-        // System.out.println(5);
     }
 }
