@@ -86,11 +86,11 @@ public class FileUtil {
                                 phone);
                         MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                         MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
-                    } else{
-                        Employee employee = new Employee(idEmp, position, name, age, gender, email, address,phone);
+                    } else {
+                        Employee employee = new Employee(idEmp, position, name, age, gender, email, address, phone);
                         MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                         MenuHandle.listAccount[MenuHandle.n] = new Account(username, password, employee);
-                        
+
                     }
                 }
             }
@@ -188,12 +188,12 @@ public class FileUtil {
                     Date timeStart = null;
                     Date timeEnd = null;
                     try {
-                        timeStart =  dateInput.parse(txt[3]);
+                        timeStart = dateInput.parse(txt[3]);
                         timeEnd = dateInput.parse(txt[4]);
                     } catch (Exception e) {
-                        
+
                     }
-                    Contract contract = new Contract(contractId,timeStart, timeEnd);
+                    Contract contract = new Contract(contractId, timeStart, timeEnd);
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
                             MenuHandle.listAccount[i].getEmployee().setContract(contract);
@@ -248,6 +248,7 @@ public class FileUtil {
                     for (int i = 0; i < members; i++) {
                         idEmployee[i] = txt[i + 4];
                     }
+                    MenuHandle.listDepartments = Arrays.copyOf(MenuHandle.listDepartments, MenuHandle.m + 1);
                     MenuHandle.listDepartments[MenuHandle.m] = new Department(departmentId,
                             departmentName, idChief, members,
                             idEmployee);

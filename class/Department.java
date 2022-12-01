@@ -95,14 +95,18 @@ public class Department {
     }
 
     public void output() {
-        System.out.println("--------------------------------------------------------------------------------");
-        System.out.printf("\n     %-15s|     %-15s|     %-15s", departmentId, departmentName, idChief);
-        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println(
+                "\n--------------------------------------------------------------------------------------------------------------");
+        System.out.printf("|     %-20s|     %-20s|     %-20s|     %-25s|", departmentId, departmentName, idChief,
+                idEmployee[0]);
 
-        for (int i = 0; i < members; i++) {
-            System.out.println("\n" + idEmployee[i]);
+        for (int i = 1; i < members; i++) {
+            System.out.printf("\n|     %-20s|     %-20s|     %-20s|     %-25s|", "", "", "",
+                    idEmployee[i]);
+
         }
-        System.out.println("\n-------------------------------------------------------------------------------");
+        System.out.println(
+                "\n--------------------------------------------------------------------------------------------------------------");
     }
 
     @Override

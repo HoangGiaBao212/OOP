@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.logging.Handler;
 
 import javax.management.modelmbean.ModelMBean;
 
@@ -38,9 +39,58 @@ public class SalaryManager implements RoleOfManager {
      * 
      * 
      */
+
     @Override
     public void inputList() {
+        int year;
+        int month;
+        // Input new list account
+        if (MenuHandle.m < 0 && MenuHandle.n < 0) {
+            MenuContent.printNoData();
+        } else {
+            for (int i = 0; i < MenuHandle.m; i++) {
+                for (Account o : MenuHandle.listAccount) {
+                    if (o.getEmployee().getIdEmp().equals(MenuHandle.listDepartments[i].getDepartmentId())) {
+                        System.out.println("--------------------------------------------------------------");
+                        System.out.println("|  ==> Input info salary of Chief Of Department    |");
+                        System.out.println("--------------------------------------------------------------");
+                        System.out.print(" ==> Input year > ");
+                        year = MenuHandle.getInputNumber();
+                        System.out.print(" ==> Input month > ");
+                        month = MenuHandle.getInputNumber();
+                        System.out.print(" ==> Input indexSalary > ");
+                        indexSalary = MenuHandle.getInputNumber();
+                        System.out.print(" ==> Input someHolidays > ");
+                        someHolidays = MenuHandle.getInputNumber();
+                        System.out.print(" ==> Input overtime > ");
+                        overtime = MenuHandle.getInputNumber();
+                        o.getEmployee().netSalary(indexSalary, someHolidays, overtime, year, month);
+                    }
+                }
 
+                for (int j = 0; j < MenuHandle.listDepartments[i].getMembers(); j++) {
+                    String idEmp = MenuHandle.listDepartments[i].getIdEmployee()[j];
+                    for (Account o : MenuHandle.listAccount) {
+                        if (o.getEmployee().getIdEmp().equals(idEmp)) {
+                            System.out.println("--------------------------------------------------------------");
+                            System.out.print("|  ==> Input info salary of employee                          |");
+                            System.out.println("--------------------------------------------------------------");
+                            System.out.print(" ==> Input year > ");
+                            year = MenuHandle.getInputNumber();
+                            System.out.print(" ==> Input month > ");
+                            month = MenuHandle.getInputNumber();
+                            System.out.print(" ==> Input indexSalary > ");
+                            indexSalary = MenuHandle.getInputNumber();
+                            System.out.println(" ==> Input someHolidays > ");
+                            someHolidays = MenuHandle.getInputNumber();
+                            System.out.println(" ==> Input overtime > ");
+                            overtime = MenuHandle.getInputNumber();
+                            o.getEmployee().netSalary(indexSalary, someHolidays, overtime, year, month);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override

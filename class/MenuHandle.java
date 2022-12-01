@@ -10,7 +10,7 @@ public class MenuHandle {
     static int n = -1;
     static int m = -1;
     static Account[] listAccount = new Account[0];
-    static Department[] listDepartments = new Department[100];
+    static Department[] listDepartments = new Department[0];
 
     static ContractManager listContract = new ContractManager();
     static SalaryManager listSalary = new SalaryManager();
@@ -245,7 +245,7 @@ public class MenuHandle {
             login();
         }
     }
-    
+
     public static void iForEmployee(String idEmp) {
         int choice;
         MenuContent.menuIForEmployee();
@@ -330,7 +330,7 @@ public class MenuHandle {
 
     public static String inputId(String id) {
         String inputId;
-        System.out.print("     - Enter id : ");
+        System.out.print("     - Enter id > ");
         inputId = scanner.nextLine();
         while (inputId.isEmpty()) {
             System.out.print("\n    Id of employee must not be left blank! Enter again:  ");
@@ -338,13 +338,14 @@ public class MenuHandle {
             inputId = inputId.toUpperCase();
         }
         while (!inputId.startsWith(id)) {
-            System.out.printf("%-25 %-5s", "\n     Employee code starting from ", id);
+            System.out.printf("%-25s %-5s", "\n     Employee code starting from ", id);
             System.out.println("\nEnter again: ");
             inputId = scanner.nextLine();
             inputId = inputId.toUpperCase();
         }
         return inputId;
     }
+
     public static Date getInputDate() {
         Date date = null;
         String strDate = "";
@@ -354,8 +355,8 @@ public class MenuHandle {
             try {
                 date = dateInput.parse(strDate);
                 // if (!strDate.equals(new SimpleDateFormat("dd-MM-yyyy").format(date))) {
-                //     date = null;
-                //     System.out.println("Input Wrong!!!");
+                // date = null;
+                // System.out.println("Input Wrong!!!");
                 // }
                 // System.out.println(date);
             } catch (Exception e) {
