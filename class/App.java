@@ -31,9 +31,13 @@ public class App {
         // departmentManager.outputList();
         AccountList accountList = new AccountList();
         // accountList.inputList();
+        accountList.add();
+        accountList.outputList();
+        accountList.remove(null);
 
         accountList.outputList();
-        System.out.println(accountList);
+        // System.out.println(accountList);
+
         end();
         // System.out.println(5);
     }

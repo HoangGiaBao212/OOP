@@ -124,7 +124,7 @@ public class AccountList implements RoleOfManager {
         System.out.println("-------------------------------------------------");
         if (idRemove == null) {
             System.out.println("Enter id of employee to remove(Ex:E001): ");
-            idRemove = scanner.nextLine();
+            idRemove = Handle.inputId("E");
         }
         for (int i = 0; i < Handle.n; i++) {
             if (Handle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idRemove)) {

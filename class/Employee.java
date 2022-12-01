@@ -12,7 +12,7 @@ class Employee extends Worker implements InOut {
     }
 
     public Employee(String idEmp, String position) {
-        this.position = idEmp;
+        this.idEmp = idEmp;
         this.position = position;
     }
 
