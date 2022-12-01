@@ -73,7 +73,7 @@ public class SalaryManager implements RoleOfManager {
                     for (Account o : MenuHandle.listAccount) {
                         if (o.getEmployee().getIdEmp().equals(idEmp)) {
                             System.out.println("--------------------------------------------------------------");
-                            System.out.print("|  ==> Input info salary of employee                          |");
+                            System.out.print("|  ==> Input info salary of employee                          |\n");
                             System.out.println("--------------------------------------------------------------");
                             System.out.print(" ==> Input year > ");
                             year = MenuHandle.getInputNumber();
@@ -95,14 +95,10 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void outputList() {
-        System.out.println(MenuHandle.n);
-        System.out.println(
-                "---------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("|  %-10s|  %-20s|  %-20s|  %-20s|  %-20s|  %-20s|", "ID",
-                "Name", "Position", "Coefficients Salary", "Some Holidays", "Salary");
-        System.out.println(
-                "\n---------------------------------------------------------------------------------------------------------------------------------");
-
+        for (Account account : MenuHandle.listAccount) {
+            System.out.println("LIST SALARY");
+            account.getEmployee().getSalaryDiary();
+        }
     }
 
     @Override

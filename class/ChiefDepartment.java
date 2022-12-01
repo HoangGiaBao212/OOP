@@ -36,8 +36,90 @@ public class ChiefDepartment extends Employee {
 
     @Override
     public double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
-
-        return 0;
+        // Long totalSalary;
+        int i = 0;
+        while (true) {
+            super.getSalaryDiary()[i] = new Long(i);
+            if (super.getSalaryDiary()[i] == 0) {
+                super.getSalaryDiary()[i] = (long) year;
+                if (month == 1) {
+                    i += 1;
+                    super.getSalaryDiary()[i] = new Long(i);
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 2) {
+                    i += 2;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 3) {
+                    i += 3;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 4) {
+                    i += 4;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 5) {
+                    i += 5;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 6) {
+                    i += 6;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 7) {
+                    i += 7;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 8) {
+                    i += 8;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 9) {
+                    i += 9;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 10) {
+                    i += 10;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 11) {
+                    i += 11;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+                if (month == 12) {
+                    i += 12;
+                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    break;
+                }
+            } else {
+                i += 13;
+            }
+        }
+        return super.getSalaryDiary()[i];
     }
 
     @Override

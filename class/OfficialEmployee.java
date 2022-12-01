@@ -4,6 +4,9 @@ public class OfficialEmployee extends Employee {
 
     static Scanner scanner = new Scanner(System.in);
 
+    private final Long baseSalary = (long) 550000;
+    private final int overtimeSalary = 25000;
+
     public OfficialEmployee() {
     }
 
