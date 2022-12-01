@@ -72,10 +72,13 @@ class Person implements InOut {
         while (gender.isEmpty()) {
             System.out.print("\n     Gender must not be left blank! Enter again: ");
             gender = sc.nextLine();
+            gender = gender.substring(0,1).toUpperCase();
         }
         while (!gender.equalsIgnoreCase("Male") && !gender.equalsIgnoreCase("Female")) {
             System.out.print("\n     Gender is Male or Female. Enter again: ");
             gender = sc.nextLine();
+            gender = gender.substring(0,1).toUpperCase();
+
         }
         this.gender = gender;
     }

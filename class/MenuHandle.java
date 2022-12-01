@@ -104,6 +104,7 @@ public class MenuHandle {
         do {
             System.out.print("==> Input option : ");
             option = getInputNumber();
+            clearScreen();
             switch (option) {
                 case 1 -> option("Account Employee");
                 case 2 -> option("Contract");
@@ -219,7 +220,7 @@ public class MenuHandle {
                     break;
                 }
             }
-        } while (option < 1 || option > 9);
+        } while (option < 1 || option > 10);
     }
 
     // Login
@@ -339,19 +340,21 @@ public class MenuHandle {
 
     public static String inputId(String id) {
         String inputId;
-        System.out.print("     - Enter id > ");
+        System.out.print("==> Enter Id: ");
         inputId = scanner.nextLine();
         while (inputId.isEmpty()) {
             System.out.print("\n    Id of employee must not be left blank! Enter again:  ");
-            inputId = scanner.nextLine();
-            inputId = inputId.toUpperCase();
+            inputId = inputId(id);
         }
         while (!inputId.startsWith(id)) {
-            System.out.printf("%-25s %-5s", "\n     Employee code starting from ", id);
-            System.out.println("\nEnter again: ");
-            inputId = scanner.nextLine();
-            inputId = inputId.toUpperCase();
+            System.out.printf("%-20s %-5s", "     ID starting from ", id);
+            System.out.println("\n     Enter again: ");
+            inputId = inputId(id);
         }
+        // while (!checkIdEmployee(inputId)) {
+        //     System.out.print("Employee ID is already exist.Enter again: ");
+        //     inputId = inputId(inputId);
+        // }
         return inputId;
     }
 

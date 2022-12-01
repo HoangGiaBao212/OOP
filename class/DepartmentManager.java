@@ -11,7 +11,7 @@ public class DepartmentManager implements RoleOfManager {
         MenuHandle.m = MenuHandle.getInputNumber();
         MenuHandle.listDepartments = new Department[MenuHandle.m];
         for (int i = 0; i < MenuHandle.m; i++) {
-            System.out.println("-------- Enter information for department number " + (i + 1));
+            System.out.println("==> Enter information for department number " + (i + 1));
             MenuHandle.listDepartments[i] = new Department();
             MenuHandle.listDepartments[i].input();
             MenuHandle.n += MenuHandle.listDepartments[i].getMembers() + 1;

@@ -37,7 +37,7 @@ public class MenuContent {
         System.out.println("     ---------------------------------");
         System.out.println("     | 4. Department Manager         |");
         System.out.println("     ---------------------------------");
-        System.out.println("     | 5.Log Out                     |");
+        System.out.println("     | 5. Log Out                    |");
         System.out.println("     ---------------------------------");
         System.out.println("     | 6. Exit                       |");
         System.out.println("     ---------------------------------");
