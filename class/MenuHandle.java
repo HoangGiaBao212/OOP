@@ -110,6 +110,10 @@ public class MenuHandle {
                 case 3 -> option("Salary");
                 case 4 -> option("Department");
                 case 5 -> {
+                    clearScreen();
+                    login();
+                }
+                case 6 -> {
                     MenuContent.noteBye();
                     break;
                 }
@@ -118,7 +122,7 @@ public class MenuHandle {
                     break;
                 }
             }
-        } while (option < 1 || option > 5);
+        } while (option < 1 || option > 6);
     }
 
     public static void option(String title) {
@@ -202,6 +206,11 @@ public class MenuHandle {
                     break;
                 }
                 case 9 -> {
+                    clearScreen();
+                    login();
+                    break;
+                }
+                case 10 -> {
                     MenuContent.noteBye();
                     break;
                 }
@@ -245,7 +254,7 @@ public class MenuHandle {
             login();
         }
     }
-    
+
     public static void iForEmployee(String idEmp) {
         int choice;
         MenuContent.menuIForEmployee();
@@ -345,6 +354,7 @@ public class MenuHandle {
         }
         return inputId;
     }
+
     public static Date getInputDate() {
         Date date = null;
         String strDate = "";
@@ -354,8 +364,8 @@ public class MenuHandle {
             try {
                 date = dateInput.parse(strDate);
                 // if (!strDate.equals(new SimpleDateFormat("dd-MM-yyyy").format(date))) {
-                //     date = null;
-                //     System.out.println("Input Wrong!!!");
+                // date = null;
+                // System.out.println("Input Wrong!!!");
                 // }
                 // System.out.println(date);
             } catch (Exception e) {
