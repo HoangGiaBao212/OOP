@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Employee extends Worker implements InOut {
+class Employee extends Worker{
 
     static Scanner scanner = new Scanner(System.in);
     private String idEmp;

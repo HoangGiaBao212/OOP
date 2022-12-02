@@ -382,7 +382,7 @@ public class MenuHandle {
         if(date.isEmpty() || date.trim().equals("")){
             return false;
         }else{
-                SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yyyy"); // Jan-20-2015 1:30:55 PM
+                SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yyyy"); // 02/12/2022
                     Date d=null;
                     Date d1=null;
                 String today = getToday("dd/MM/yyyy");
