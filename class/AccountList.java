@@ -39,7 +39,7 @@ public class AccountList implements RoleOfManager {
                             MenuHandle.listAccount[MenuHandle.n++] = account2;
                             break;
                         default:
-                            System.out.println("choice does not exist!");
+                            System.out.println("Choice does not exist!");
                             System.out.println("Option from 1 to 2, please re-enter: ");
                             break;
                     }
@@ -70,13 +70,13 @@ public class AccountList implements RoleOfManager {
         int option;
         String idDep;
         String idEmpAdd;
-        System.out.print(" ==> Enter id of department to add employee > ");
+        System.out.print("(Ex:D001).");
         idDep = MenuHandle.inputId("D");
         System.out.print("Enter id employee to add > ");
         idEmpAdd = MenuHandle.inputId("E");
         while (MenuHandle.checkIdEmployee(idEmpAdd)) {
-            System.out.print(" <<<<< Id is exist!!!, input again > ");
-            idEmpAdd = MenuHandle.inputId(idEmpAdd);
+            System.out.print(" ==> Id is exist!!!, input again > ");
+            idEmpAdd = MenuHandle.inputId("E");
         }
         for (int j = 0; j < MenuHandle.m; j++) {
             int temp = MenuHandle.listDepartments[j].getMembers();
@@ -84,7 +84,7 @@ public class AccountList implements RoleOfManager {
                 MenuContent.menuOptionTypeEmployee();
                 option = MenuHandle.getInputNumber();
                 if (temp > 10) {
-                    System.out.println("<<<<Too much");
+                    System.out.println("==> Too much");
                     break;
                 }
                 do {
@@ -177,7 +177,9 @@ public class AccountList implements RoleOfManager {
                             System.out.println("| 5.Change Email                             |");
                             System.out.println("| 6.Change Address                           |");
                             System.out.println("| 7.Change Phone Number                      |");
-                            System.out.println("| 8.Exit to menu                             |");
+                            System.out.println("| 8.Change Username                          |");
+                            System.out.println("| 9.Change password                          |");
+                            System.out.println("| 10.Exit to menu                            |");
                             System.out.println("----------------------------------------------");
                             System.out.print("==> Input option:");
                             key = Integer.parseInt(scanner.nextLine());
@@ -223,6 +225,12 @@ public class AccountList implements RoleOfManager {
                                     MenuHandle.listAccount[i].getEmployee().setPhone(null);
                                     break;
                                 case 8:
+                                    MenuHandle.listAccount[i].setUsername(null);
+                                    break;
+                                case 9:
+                                    MenuHandle.listAccount[i].setPassword(null);
+                                    break;
+                                case 10:
                                     MenuContent.option("Employee");
                                     break;
                                 default:
