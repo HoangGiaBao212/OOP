@@ -63,6 +63,7 @@ public class FileUtil {
                     String[] txt = line.split("-");
                     String username = txt[0];
                     String password = txt[1];
+                    // String user = txt[2];
                     String idEmp = txt[3];
                     String position = txt[4];
                     String name = txt[5];
@@ -201,7 +202,8 @@ public class FileUtil {
                     } catch (Exception e) {
 
                     }
-                    Contract contract = new Contract(contractId, timeStart, timeEnd);
+                    String status = txt[5];
+                    Contract contract = new Contract(contractId, timeStart, timeEnd, status);
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
                             MenuHandle.listAccount[i].getEmployee().setContract(contract);

@@ -18,7 +18,6 @@ public class AccountList implements RoleOfManager {
             for (int j = 0; j < MenuHandle.listDepartments[i].getMembers(); j++) {
                 MenuContent.menuOptionTypeEmployee();
                 option = scanner.nextInt();
-                // MenuHandle.listDepartments[i].getIdEmployee()[j] = new String();
                 String idEmp = MenuHandle.listDepartments[i].getIdEmployee()[j];
                 System.out.println(idEmp);
                 do {

@@ -32,20 +32,24 @@ public class ContractManager implements RoleOfManager {
         MenuHandle.clearScreen();
         System.out.println("Output the List of Contract\n");
         // System.out.println(Handle.n);
-        if (MenuHandle.n < 0) {
+        if (MenuHandle.n < 0 || MenuHandle.listAccount[0].getEmployee().getContract() == null) {
             MenuContent.printNoData();
         } else {
             System.out.println(
-                    "------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("|    %-15s|   %-20s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|",
-                    "Contract ID", "Name", "Gender", "Age", "Phone number", "Email", "Time start", "Time end");
+                    "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf(
+                    "|    %-15s|    %-15s|   %-15s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|    %-15s|",
+                    "Contract ID", "Name", "Employee ID", "Gender", "Age", "Phone number", "Email", "Time start",
+                    "Time end", "Status");
             System.out.println();
             System.out.println(
-                    "------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (int i = 0; i < MenuHandle.n; i++) {
-                System.out.printf("|    %-15s|   %-20s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|\n",
+                System.out.printf(
+                        "|    %-15s|    %-15s|   %-15s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|    %-15s|\n",
                         MenuHandle.listAccount[i].getEmployee().getContract().getContractID(),
                         MenuHandle.listAccount[i].getEmployee().getName(),
+                        MenuHandle.listAccount[i].getEmployee().getIdEmp(),
                         MenuHandle.listAccount[i].getEmployee().getGender(),
                         MenuHandle.listAccount[i].getEmployee().getAge(),
                         MenuHandle.listAccount[i].getEmployee().getPhone(),
@@ -53,9 +57,10 @@ public class ContractManager implements RoleOfManager {
                         new SimpleDateFormat("dd/MM/yyyy")
                                 .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeStart()),
                         new SimpleDateFormat("dd/MM/yyyy")
-                                .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd()));
+                                .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd()),
+                        MenuHandle.listAccount[i].getEmployee().getContract().getStatus());
                 System.out.println(
-                        "------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
     }
@@ -114,18 +119,21 @@ public class ContractManager implements RoleOfManager {
                         if (MenuHandle.listAccount[i].getEmployee().getContract().getContractID()
                                 .equalsIgnoreCase(idEdit)) {
                             System.out.println("\n ----------------------------------------------");
-                            System.out.println(" | 1.Change time start                        |");
-                            System.out.println(" | 2.Change time end                          |");
+                            System.out.println(" | 1.Change time end                          |");
                             System.out.println(" ----------------------------------------------");
                             System.out.print("==> Input option:");
                             key = Integer.parseInt(scanner.nextLine());
                             System.out.println();
                             switch (key) {
                                 case 1:
-                                    MenuHandle.listAccount[i].getEmployee().getContract().setTimeStart(null);
-                                    break;
-                                case 2:
-                                    MenuHandle.listAccount[i].getEmployee().getContract().setTimeEnd(null);
+                                    System.out.print("Enter time end: ");
+                                    Date input = MenuHandle.getInputDate();
+                                    MenuHandle.listAccount[i].getEmployee().getContract().setTimeEnd(input);
+                                    if (MenuHandle.isExpire(new SimpleDateFormat("dd/MM/yyyy").format(input))) {
+                                        MenuHandle.listAccount[i].getEmployee().getContract().setStatus("Out of Date");
+                                    } else {
+                                        MenuHandle.listAccount[i].getEmployee().getContract().setStatus("Still Working");
+                                    }
                                     break;
                                 default:
                                     MenuContent.noteBye();
@@ -143,9 +151,9 @@ public class ContractManager implements RoleOfManager {
                         MenuContent.choiceWrong();
                         break;
                 }
-                // MenuContent.noteChangeSuccess();
             }
         }
+        MenuContent.noteChangeSuccess();
     }
 
     @Override

@@ -60,9 +60,9 @@ public class SalaryManager implements RoleOfManager {
                         month = MenuHandle.getInputNumber();
                         System.out.print(" ==> Input indexSalary > ");
                         indexSalary = MenuHandle.getInputNumber();
-                        System.out.print(" ==> Input someHolidays > ");
+                        System.out.print(" ==> Input daysOff > ");
                         someHolidays = MenuHandle.getInputNumber();
-                        System.out.print(" ==> Input overtime > ");
+                        System.out.print(" ==> Input Overtime > ");
                         overtime = MenuHandle.getInputNumber();
                         o.getEmployee().netSalary(indexSalary, someHolidays, overtime, year, month);
                     }
@@ -81,9 +81,9 @@ public class SalaryManager implements RoleOfManager {
                             month = MenuHandle.getInputNumber();
                             System.out.print(" ==> Input indexSalary > ");
                             indexSalary = MenuHandle.getInputNumber();
-                            System.out.println(" ==> Input someHolidays > ");
+                            System.out.print(" ==> Input someHolidays > ");
                             someHolidays = MenuHandle.getInputNumber();
-                            System.out.println(" ==> Input overtime > ");
+                            System.out.print(" ==> Input overtime > ");
                             overtime = MenuHandle.getInputNumber();
                             o.getEmployee().netSalary(indexSalary, someHolidays, overtime, year, month);
                         }

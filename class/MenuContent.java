@@ -82,7 +82,11 @@ public class MenuContent {
         System.out.println("|            Add Successful!!          |");
         System.out.println("----------------------------------------");
     }
-
+    public static void noteAddFailure() {
+        System.out.println("----------------------------------------");
+        System.out.println("|              Add Failure!!           |");
+        System.out.println("----------------------------------------");
+    }
     public static void optionEdit() {
         System.out.println("-------------------------------------------------");
         System.out.println("|                Select edit                    |");
