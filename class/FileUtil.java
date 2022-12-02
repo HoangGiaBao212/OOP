@@ -195,7 +195,7 @@ public class FileUtil {
 
                     }
                     String status = txt[5];
-                    Contract contract = new Contract(contractId, timeStart, timeEnd,status);
+                    Contract contract = new Contract(contractId, timeStart, timeEnd, status);
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
                             MenuHandle.listAccount[i].getEmployee().setContract(contract);
