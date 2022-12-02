@@ -10,13 +10,15 @@ public class Contract implements InOut {
     // private String timeEnd;
     private Date timeStart;
     private Date timeEnd;
+    private String status;
     public Contract() {
     }
 
-    public Contract(String contractID, Date timeStart, Date timeEnd) {
+    public Contract(String contractID, Date timeStart, Date timeEnd,String status) {
         this.contractID = contractID;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
+        this.status = status;
     }
 
     public String getContractID() {
@@ -49,6 +51,13 @@ public class Contract implements InOut {
     public void setTimeEnd(Date timeEnd){
         this.timeEnd = timeEnd;
     }
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     @Override
     public void input() {
         setContractID(contractID);
@@ -62,18 +71,22 @@ public class Contract implements InOut {
             }
 
         }while(timeEnd.after(timeStart) == false);
+        if(MenuHandle.isExpire(new SimpleDateFormat("dd/MM/yyyy").format(timeEnd))){
+            setStatus("Out of Date");
+        }else{
+            setStatus("Still Working");
+        }
     }
-
     @Override
     public void output() {
         System.out.printf("|   %-15s|", contractID);
-        // super.output();
         System.out.printf("    %-15s|   %-15s", new SimpleDateFormat("dd/MM/yyyy").format(timeStart), new SimpleDateFormat("dd/MM/yyyy").format(timeEnd));
+        System.out.printf("    %-15s|",status);
     }
 
     @Override
     public String toString() {
-        return getContractID() + "-" + new SimpleDateFormat("dd/MM/yyyy").format(timeStart) + "-" + new SimpleDateFormat("dd/MM/yyyy").format(timeEnd);
+        return getContractID() + "-" + new SimpleDateFormat("dd/MM/yyyy").format(timeStart) + "-" + new SimpleDateFormat("dd/MM/yyyy").format(timeEnd) + "-" + status;
     }
 
 }
