@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Employee extends Worker{
+class Employee extends Worker {
 
     static Scanner scanner = new Scanner(System.in);
     private String idEmp;
@@ -77,8 +77,8 @@ class Employee extends Worker{
     }
 
     @Override
-    public Long netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
-        return (long) 0;
+    public void netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
+
     }
 
     @Override

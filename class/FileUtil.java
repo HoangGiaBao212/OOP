@@ -132,21 +132,23 @@ public class FileUtil {
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
                             while (true) {
-                                MenuHandle.listAccount[i].getEmployee().salaryDiary = new long[j + 13];
-                                Long temp = Long.parseLong(txt[j + 1]);
-                                if (temp == 0) {
+                                if (Long.parseLong(txt[j + 1]) == 0) {
                                     break;
                                 } else {
-                                    MenuHandle.listAccount[i].getEmployee().salaryDiary[j] = Long.parseLong(txt[j + 1]);
+                                    MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays
+                                            .copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j + 13);
+                                    MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j] = Long
+                                            .parseLong(txt[j + 1]);
                                     // System.out.println(
                                     // "Nam" + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
                                     for (int month = 1; month <= 12; month++) {
-                                        j += 1;
-                                        MenuHandle.listAccount[i].getEmployee().salaryDiary[j] = Long
+                                        j++;
+                                        MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j] = Long
                                                 .parseLong(txt[j + 1]);
-                                        // System.out.println(
-                                        // "Thang" + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
+                                        System.out.println("Thang:  "
+                                                + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
                                     }
+                                    j++;
                                     yearCount++;
                                 }
                                 if (yearCount == 10)
