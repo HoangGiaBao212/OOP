@@ -1,14 +1,26 @@
 // import java.time.Year;
 
 public abstract class Worker extends Person {
-    protected double[] salaryDiary;
+    protected long[] salaryDiary = new long[100];
 
     public Worker() {
 
     }
 
+    public Worker(long[] salaryDiary) {
+        this.salaryDiary = salaryDiary;
+    }
+
     public Worker(String name, int age, String gender, String email, String address, String phone) {
         super(name, age, gender, email, address, phone);
+    }
+
+    public long[] getSalaryDiary() {
+        return salaryDiary;
+    }
+
+    public void setSalaryDiary(long[] salaryDiary) {
+        this.salaryDiary = salaryDiary;
     }
 
     @Override

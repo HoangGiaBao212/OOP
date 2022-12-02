@@ -97,10 +97,11 @@ public class SalaryManager implements RoleOfManager {
     public void outputList() {
         for (Account account : MenuHandle.listAccount) {
             System.out.println("LIST SALARY");
-            while (true) {
-                account.getEmployee().outputSalary();
-            }
+            account.getEmployee().outputSalary();
         }
+        // for (int i = 0; i < 12; i++) {
+        // System.out.println(MenuHandle.listAccount[0].getEmployee().salaryDiary[i]);
+        // }
     }
 
     @Override

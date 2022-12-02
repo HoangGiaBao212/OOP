@@ -11,6 +11,10 @@ class Employee extends Worker{
         super();
     }
 
+    public Employee(long[] salaryDiary) {
+        super(salaryDiary);
+    }
+
     public Employee(String idEmp, String position) {
         this.idEmp = idEmp;
         this.position = position;
@@ -74,13 +78,14 @@ class Employee extends Worker{
 
     @Override
     public Long netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
-        // TODO Auto-generated method stub
         return (long) 0;
     }
 
     @Override
     public void outputSalary() {
-        // TODO Auto-generated method stub
+    }
 
+    public String toStringSalary() {
+        return getIdEmp() + "-" + "1000000";
     }
 }
