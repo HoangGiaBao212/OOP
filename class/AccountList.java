@@ -18,15 +18,17 @@ public class AccountList implements RoleOfManager {
             for (int j = 0; j < MenuHandle.listDepartments[i].getMembers(); j++) {
                 MenuContent.menuOptionTypeEmployee();
                 option = scanner.nextInt();
-                MenuHandle.listDepartments[i].getIdEmployee()[j] = new String();
+                // MenuHandle.listDepartments[i].getIdEmployee()[j] = new String();
                 String idEmp = MenuHandle.listDepartments[i].getIdEmployee()[j];
+                System.out.println(idEmp);
                 do {
                     switch (option) {
                         case 1:
                             Account account1 = new Account();
                             account1.input();
                             account1.setEmployee(
-                                    new OfficialEmployee(idEmp, "Official Employee"));
+                                    new OfficialEmployee(MenuHandle.listDepartments[i].getIdEmployee()[j],
+                                            "Official Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account1;
                             break;
@@ -34,7 +36,8 @@ public class AccountList implements RoleOfManager {
                             Account account2 = new Account();
                             account2.input();
                             account2.setEmployee(
-                                    new InternEmployee(idEmp, "Intern Employee"));
+                                    new InternEmployee(MenuHandle.listDepartments[i].getIdEmployee()[j],
+                                            "Intern Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account2;
                             break;

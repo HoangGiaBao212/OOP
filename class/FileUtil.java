@@ -36,16 +36,16 @@ public class FileUtil {
 
     public static void getData() {
         readFileAccount();
-        // readFileSalary();
-        // readFileContract();
         readFileDepartment();
+        readFileSalary();
+        // readFileContract();
     }
 
     public static void setData() {
         writeFileAccount();
-        // writeFileSalary();
-        // writeFileContract();
         writeFileDepartment();
+        // writeFileContract();
+        writeFileSalary();
     }
 
     private static void readFileAccount() {
@@ -112,62 +112,70 @@ public class FileUtil {
         }
     }
 
-    // static void readFileSalary() {
-    // int i = -1;
-    // try {
-    // FileReader fr = new FileReader(listSalaryTxt);
-    // try (BufferedReader br = new BufferedReader(fr)) {
-    // String line = "";
-    // while (true) {
-    // i++;
-    // line = br.readLine();
-    // if (line == null) {
-    // break;
-    // }
-    // String[] txt = line.split("-");
-    // String idEmp = txt[0];
-    // int indexSalary = Integer.parseInt(txt[3]);
-    // int someHolidays = Integer.parseInt(txt[4]);
-    // Long totalSalary = Long.parseLong(txt[5]);
+    static void readFileSalary() {
+        int i = -1;
+        try {
+            FileReader fr = new FileReader(listSalaryTxt);
+            try (BufferedReader br = new BufferedReader(fr)) {
+                String line = "";
+                while (true) {
+                    i++;
+                    line = br.readLine();
+                    if (line == null) {
+                        break;
+                    }
+                    String[] txt = line.split("-");
+                    String idEmp = txt[0];
+                    int yearCount = 1;
+                    int j = 0;
+                    while (true) {
+                        if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
+                            while (true) {
+                                MenuHandle.listAccount[i].getEmployee().salaryDiary = new long[j + 13];
+                                Long temp = Long.parseLong(txt[j + 1]);
+                                if (temp == 0) {
+                                    break;
+                                } else {
+                                    MenuHandle.listAccount[i].getEmployee().salaryDiary[j] = Long.parseLong(txt[j + 1]);
+                                    // System.out.println(
+                                    // "Nam" + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
+                                    for (int month = 1; month <= 12; month++) {
+                                        j += 1;
+                                        MenuHandle.listAccount[i].getEmployee().salaryDiary[j] = Long
+                                                .parseLong(txt[j + 1]);
+                                        // System.out.println(
+                                        // "Thang" + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
+                                    }
+                                    yearCount++;
+                                }
+                                if (yearCount == 10)
+                                    break;
+                            }
+                        }
+                        i++;
+                    }
+                }
+                br.close();
+                fr.close();
+            }
 
-    // Salary salary = new Salary(indexSalary, someHolidays, totalSalary);
+        } catch (Exception e) {
+        }
+    }
 
-    // while (true) {
-    // if (Handle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
-    // Handle.listAccount[i].getEmployee().setSalary(salary);
-    // break;
-    // }
-    // i++;
-    // }
-    // }
-    // br.close();
-    // fr.close();
-    // }
-
-    // } catch (Exception e) {
-    // }
-    // }
-
-    // public static void writeFileSalary() {
-    // try {
-    // FileWriter fw = new FileWriter(listSalaryTxt);
-    // BufferedWriter bw = new BufferedWriter(fw);
-    // for (int i = 0; i < Handle.n; i++) {
-
-    // if (Handle.listAccount[i].getEmployee().getSalary() != null) {
-    // bw.write(Handle.listAccount[i].getEmployee().getIdEmp() + "-"
-    // + Handle.listAccount[i].getEmployee().getName() + "-"
-    // + Handle.listAccount[i].getEmployee().getPosition() + "-"
-    // + Handle.listAccount[i].getEmployee().getSalary().toString());
-    // bw.newLine();
-    // }
-    // }
-    // bw.close();
-    // fw.close();
-
-    // } catch (Exception e) {
-    // }
-    // }
+    public static void writeFileSalary() {
+        try {
+            FileWriter fw = new FileWriter(listSalaryTxt);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int i = 0; i < MenuHandle.n; i++) {
+                bw.write(MenuHandle.listAccount[i].getEmployee().toStringSalary());
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+        }
+    }
 
     static void readFileContract() {
         int i = -1;
@@ -244,7 +252,6 @@ public class FileUtil {
                     String idChief = txt[2];
                     int members = Integer.parseInt(txt[3]);
                     String[] idEmployee = new String[members];
-                    // int temp=members;
                     for (int i = 0; i < members; i++) {
                         idEmployee[i] = txt[i + 4];
                     }
