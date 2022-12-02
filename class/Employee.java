@@ -64,7 +64,6 @@ class Employee extends Worker implements InOut {
     @Override
     public void input() {
         super.input();
-        // setIdEmp(idEmp);
     }
 
     @Override
@@ -74,8 +73,14 @@ class Employee extends Worker implements InOut {
     }
 
     @Override
-    public double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
+    public Long netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
         // TODO Auto-generated method stub
-        return 0;
+        return (long) 0;
+    }
+
+    @Override
+    public void outputSalary() {
+        // TODO Auto-generated method stub
+
     }
 }

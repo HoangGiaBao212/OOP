@@ -10,6 +10,8 @@ public class SalaryManager implements RoleOfManager {
     float indexSalary;
     int someHolidays;
     int overtime;
+    int year;
+    int month;
     // indexSalary*baseSalary*26 + giolamthem*luonglamthem - baseSalary*someHolidays
 
     /*
@@ -42,8 +44,6 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void inputList() {
-        int year;
-        int month;
         // Input new list account
         if (MenuHandle.m < 0 && MenuHandle.n < 0) {
             MenuContent.printNoData();
@@ -97,7 +97,9 @@ public class SalaryManager implements RoleOfManager {
     public void outputList() {
         for (Account account : MenuHandle.listAccount) {
             System.out.println("LIST SALARY");
-            account.getEmployee().getSalaryDiary();
+            while (true) {
+                account.getEmployee().outputSalary();
+            }
         }
     }
 

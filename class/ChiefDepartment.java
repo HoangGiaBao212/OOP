@@ -4,7 +4,7 @@ public class ChiefDepartment extends Employee {
 
     static Scanner scanner = new Scanner(System.in);
 
-    private final Long baseSalary = (long) 600000;
+    private final double baseSalary = 600000;
     private final int overtimeSalary = 50000;
 
     public ChiefDepartment() {
@@ -35,91 +35,132 @@ public class ChiefDepartment extends Employee {
     }
 
     @Override
-    public double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
+    public Long netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
         // Long totalSalary;
         int i = 0;
         while (true) {
-            super.getSalaryDiary()[i] = new Long(i);
-            if (super.getSalaryDiary()[i] == 0) {
-                super.getSalaryDiary()[i] = (long) year;
+            salaryDiary = new double[i + 12];
+            if (salaryDiary[i] == 0) {
+                salaryDiary[i] = year;
                 if (month == 1) {
                     i += 1;
-                    super.getSalaryDiary()[i] = new Long(i);
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 2) {
                     i += 2;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 3) {
                     i += 3;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = new Long((long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary));
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 4) {
                     i += 4;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = new Long((long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary));
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 5) {
                     i += 5;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = new Long((long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary));
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 6) {
                     i += 6;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = new Long((long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary));
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 7) {
                     i += 7;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
+                    // + overtime * overtimeSalary - someHolidays * baseSalary);
+                    // super.getSalaryDiary()[i] = new Long((long) (indexSalary * baseSalary * 26
+                    //
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 8) {
                     i += 8;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 9) {
                     i += 9;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 10) {
                     i += 10;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 11) {
                     i += 11;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
                 if (month == 12) {
-                    i += 12;
-                    super.getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26
-                            + overtime * overtimeSalary - someHolidays * baseSalary);
+                    salaryDiary[i] = (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                            - someHolidays * baseSalary);
                     break;
                 }
             } else {
                 i += 13;
             }
         }
-        return super.getSalaryDiary()[i];
+        System.out.println(salaryDiary[i]);
+        return (long) salaryDiary[i];
+    }
+
+    @Override
+    public void outputSalary() {
+        int yearCount = 0;
+        int i = 0;
+        while (true) {
+            // salaryDiary = new double[i+12];
+            if (salaryDiary == null) {
+                MenuContent.printNoData();
+                break;
+            } else {
+                for (int j = 1; j <= 12; j++) {
+                    i += 1;
+                    System.out.println("Salary month " + j + " > ");
+                    System.out.println(salaryDiary[i]);
+                }
+                yearCount++;
+            }
+            if (yearCount == 10)
+                break;
+        }
     }
 
     @Override

@@ -1,26 +1,14 @@
 import java.time.Year;
 
 public abstract class Worker extends Person {
-    private Long salaryDiary[];
+    protected double[] salaryDiary;
 
     public Worker() {
 
     }
 
-    public Worker(Long[] salaryDiary) {
-        this.salaryDiary = salaryDiary;
-    }
-
     public Worker(String name, int age, String gender, String email, String address, String phone) {
         super(name, age, gender, email, address, phone);
-    }
-
-    public Long[] getSalaryDiary() {
-        return salaryDiary;
-    }
-
-    public void setSalaryDiary(Long[] salaryDiary) {
-        this.salaryDiary = salaryDiary;
     }
 
     @Override
@@ -33,6 +21,8 @@ public abstract class Worker extends Person {
         super.output();
     }
 
-    public abstract double netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month);
+    public abstract Long netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month);
+
+    public abstract void outputSalary();
 
 }
