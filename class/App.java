@@ -19,9 +19,13 @@ public class App {
 
     public static void main(String[] args) {
         init();
+        // DepartmentManager d = new  DepartmentManager();
+        // d.inputList();
+        // AccountList a = new AccountList();
+        // a.inputList();
         SalaryManager salaryManager = new SalaryManager();
         // salaryManager.inputList();
-        salaryManager.outputList();
+        // salaryManager.outputList();
         end();
     }
 }

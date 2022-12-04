@@ -77,15 +77,16 @@ class Employee extends Worker {
     }
 
     @Override
-    public void netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
-
-    }
-
-    @Override
     public void outputSalary() {
     }
 
-    public String toStringSalary() {
+    public String toStringSalary(String idEmp) {
         return getIdEmp() + "-" + "1000000";
+    }
+
+    @Override
+    public void netSalary(Account account, Float indexSalary, int someHolidays, int overtime, int year, int month) {
+        // TODO Auto-generated method stub
+        
     }
 }

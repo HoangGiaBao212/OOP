@@ -33,7 +33,7 @@ public abstract class Worker extends Person {
         super.output();
     }
 
-    public abstract void netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month);
+    public abstract void netSalary(Account account,Float indexSalary, int someHolidays, int overtime, int year, int month);
 
     public abstract void outputSalary();
 
