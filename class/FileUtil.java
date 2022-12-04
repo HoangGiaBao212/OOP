@@ -38,13 +38,13 @@ public class FileUtil {
         readFileAccount();
         readFileDepartment();
         readFileSalary();
-        // readFileContract();
+        readFileContract();
     }
 
     public static void setData() {
         writeFileAccount();
         writeFileDepartment();
-        // writeFileContract();
+        writeFileContract();
         writeFileSalary();
     }
 
