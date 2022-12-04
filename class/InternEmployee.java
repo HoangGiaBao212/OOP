@@ -117,7 +117,7 @@ public class InternEmployee extends Employee {
     @Override
     public void outputSalary() {
         System.out.printf("\n|%-15s|", getIdEmp());
-        System.out.println(getSalaryDiary().length);
+        // System.out.println(getSalaryDiary().length);
         for (int i = 0; i < getSalaryDiary().length - 1; i++) {
             if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
                 break;
