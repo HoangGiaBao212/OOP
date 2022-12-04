@@ -7,7 +7,7 @@ public class Department {
     private String departmentName;
     private String idChief;
     private int members;
-    private String[] idEmployee;
+    String[] idEmployee;
 
     public Department() {
 

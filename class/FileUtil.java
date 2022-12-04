@@ -129,19 +129,16 @@ public class FileUtil {
                     int len = txt.length;
                     System.out.println(len);
                     String idEmp = txt[0];
-                    int yearCount = 1;
                     int j = 1;
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
                             if(j==len) break;
                             MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays.copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j+1) ;    
                             MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j-1] = Long.parseLong(txt[j]);
-                            // System.out.print(MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j-1]+ "\t");
                             j++;
                         }
                         else i++;
                     }
-                    // MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays.copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j) ;    
                 }
                 br.close();
                 fr.close();

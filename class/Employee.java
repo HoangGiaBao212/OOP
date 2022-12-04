@@ -62,7 +62,7 @@ class Employee extends Worker {
 
     @Override
     public String toString() {
-        return idEmp + "-" + position + "-" + super.toString();
+        return  "admin" + "-" + idEmp + "-" + position + "-" + super.toString();
     }
 
     @Override
@@ -81,7 +81,11 @@ class Employee extends Worker {
     }
 
     public String toStringSalary(String idEmp) {
-        return getIdEmp() + "-" + "1000000";
+        String str = "";
+        for(int i=1;i<=12;i++){
+            str+= "-" +"0";
+        }
+        return getIdEmp() + str;
     }
 
     @Override

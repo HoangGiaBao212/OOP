@@ -41,7 +41,7 @@ public class OfficialEmployee extends Employee {
         for (Account o : MenuHandle.listAccount) {
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
-
+                    o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i+1 );
                     if (o.getEmployee().getSalaryDiary()[i] == 0) {
                         o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
                         o.getEmployee().getSalaryDiary()[i] = year;
@@ -126,13 +126,13 @@ public class OfficialEmployee extends Employee {
         }
     }
     
-
     @Override
     public String toStringSalary(String id) {
         String str = "";
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
-            while (i < o.getEmployee().getSalaryDiary().length-1) {
+            while (i < o.getEmployee().getSalaryDiary().length - 1) {
+
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
                     i++;

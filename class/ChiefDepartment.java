@@ -45,7 +45,8 @@ public class ChiefDepartment extends Employee {
         for (Account o : MenuHandle.listAccount) {
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
-                    if (o.getEmployee().getSalaryDiary()[i] == 0) {
+                    o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i+1 );
+                        if (o.getEmployee().getSalaryDiary()[i] == 0) {
                         o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
                         o.getEmployee().getSalaryDiary()[i] = year;
                         if (month == 1)
@@ -139,7 +140,6 @@ public class ChiefDepartment extends Employee {
 
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
-                    // System.out.println(str);
                     i++;
                 } else
                     break;

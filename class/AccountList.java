@@ -98,7 +98,10 @@ public class AccountList implements RoleOfManager {
                                     new OfficialEmployee(idEmpAdd, "Official Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account1;
-                            MenuHandle.listDepartments[j].setMembers(temp++);
+                            MenuHandle.listDepartments[j].idEmployee = Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
+                            MenuHandle.listDepartments[j].getIdEmployee()[temp] = idEmpAdd;
+                            MenuHandle.listDepartments[j].setMembers(++temp);
+                            // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String (account1.getEmployee().getIdEmp());
                             break;
                         case 2:
                             Account account2 = new Account();
@@ -107,7 +110,11 @@ public class AccountList implements RoleOfManager {
                                     new InternEmployee(idEmpAdd, "Intern Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account2;
-                            MenuHandle.listDepartments[j].setMembers(temp++);
+                            MenuHandle.listDepartments[j].idEmployee = Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
+                            MenuHandle.listDepartments[j].getIdEmployee()[temp] = idEmpAdd;
+                            // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String (account2.getEmployee().getIdEmp());
+                            MenuHandle.listDepartments[j].setMembers(++temp);
+                            break;
                         default:
                             System.out.println("choice does not exist!");
                             System.out.println("Option from 1 to ,2 please re-enter: ");

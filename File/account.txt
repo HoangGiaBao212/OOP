@@ -1,3 +1,6 @@
 admin-1234-admin-E000-admin-Bao-19-male-bao123@gmail.com-bh-0972200871
-user1-user2-Official Employee-E001-Official Employee-Bao Ng-19-Female-bao2@gmail.com-QN-0123456798
-username-1234-Chief Of Department-E003-Chief Of Department-Bao-19-male-bao123@gmail.com-bh-0972200871
+baooo-bao1234-Chief Of Department-CD001-Chief Of Department-bao-19-Male-bao@gmail.com-BH-0123541254
+phat-phat1234-Official Employee-E001-Official Employee-Phat-19-Male-phat@gmail.com-QN-0125478415
+chinh-chinhdrbb1234-Official Employee-E004-Official Employee-chinh-19-Male-chinh@gmail.com-QN-0123654874
+tuan-tuab1234-Intern Employee-E005-Intern Employee-Minh Tuan-19-Male-tuan@gmail.com-BP-0154125201
+buibao-buibao1234-Official Employee-E002-Official Employee-buivao-19-Male-bui@gmail.com-HCM-0954784124
