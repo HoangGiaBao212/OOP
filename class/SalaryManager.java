@@ -63,7 +63,7 @@ public class SalaryManager implements RoleOfManager {
                         someHolidays = MenuHandle.getInputNumber();
                         System.out.print(" ==> Input Overtime > ");
                         overtime = MenuHandle.getInputNumber();
-                        o.getEmployee().netSalary(o,indexSalary, someHolidays, overtime, year, month);
+                        o.getEmployee().netSalary(o, indexSalary, someHolidays, overtime, year, month);
                     }
                 }
 
@@ -84,7 +84,7 @@ public class SalaryManager implements RoleOfManager {
                             someHolidays = MenuHandle.getInputNumber();
                             System.out.print(" ==> Input overtime > ");
                             overtime = MenuHandle.getInputNumber();
-                            o.getEmployee().netSalary(o,indexSalary, someHolidays, overtime, year, month);
+                            o.getEmployee().netSalary(o, indexSalary, someHolidays, overtime, year, month);
                         }
                     }
                 }
@@ -94,11 +94,19 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void outputList() {
+        // System.out.println("LIST SALARY");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|",
+                "Id Employee", "Year", "January",
+                "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
+                "December");
+        System.out.println(
+                "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for (Account account : MenuHandle.listAccount) {
-            System.out.println("LIST SALARY");
             account.getEmployee().outputSalary();
         }
-    
+
     }
 
     @Override

@@ -127,11 +127,11 @@ public class FileUtil {
                     }
                     String[] txt = line.split("-");
                     int len = txt.length;
-                    // System.out.println(len);
                     String idEmp = txt[0];
                     int j = 1;
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
+                            // if (j == len || (Long.parseLong(txt[j]) == 0 && j % 14 == 0))
                             if (j == len)
                                 break;
                             MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays
@@ -153,7 +153,6 @@ public class FileUtil {
     }
 
     public static void writeFileSalary() {
-        MenuHandle.clearScreen();
         try {
             FileWriter fw = new FileWriter(listSalaryTxt);
             BufferedWriter bw = new BufferedWriter(fw);

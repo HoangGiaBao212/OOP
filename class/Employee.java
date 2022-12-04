@@ -78,6 +78,16 @@ class Employee extends Worker {
 
     @Override
     public void outputSalary() {
+        // System.out.println("----------- Info salaryDiary of employee is " + idEmp);
+        // for (int i = 0; i < salaryDiary.length; i++) {
+        // if (salaryDiary[i] == 0 && i % 13 == 0 && i != 0)
+        // break;
+        // System.out.println("Year: " + salaryDiary[i]);
+        // for (int j = 1; j <= 12; j++) {
+        // i++;
+        // System.out.println("Month " + j + ": " + salaryDiary[i]);
+        // }
+        // }
     }
 
     public String toStringSalary(String idEmp) {
