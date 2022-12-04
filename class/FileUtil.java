@@ -37,8 +37,8 @@ public class FileUtil {
     public static void getData() {
         readFileAccount();
         readFileDepartment();
-        readFileSalary();
         readFileContract();
+        readFileSalary();
     }
 
     public static void setData() {
@@ -127,17 +127,21 @@ public class FileUtil {
                     }
                     String[] txt = line.split("-");
                     int len = txt.length;
-                    System.out.println(len);
+                    // System.out.println(len);
                     String idEmp = txt[0];
                     int j = 1;
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
-                            if(j==len) break;
-                            MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays.copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j+1) ;    
-                            MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j-1] = Long.parseLong(txt[j]);
+                            if (j == len)
+                                break;
+                            MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays
+                                    .copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j + 1);
+                            MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j - 1] = Long.parseLong(txt[j]);
                             j++;
+                        } else {
+                            i++;
+                            j = 1;
                         }
-                        else i++;
                     }
                 }
                 br.close();
@@ -153,11 +157,10 @@ public class FileUtil {
         try {
             FileWriter fw = new FileWriter(listSalaryTxt);
             BufferedWriter bw = new BufferedWriter(fw);
-                for(Account o: MenuHandle.listAccount){
-                    // System.out.println(MenuHandle.n);
-                    // System.out.println(o.getEmployee().getIdEmp() instanceof String );
+            for (Account o : MenuHandle.listAccount) {
+                if (o.getEmployee().getSalaryDiary()[0] == 0)
+                    continue;
                 bw.write(o.getEmployee().toStringSalary(o.getEmployee().getIdEmp()));
-                // System.out.println(MenuHandle.listAccount[i].getEmployee().toStringSalary(MenuHandle.listAccount[i].getEmployee().getIdEmp()));
                 bw.newLine();
             }
             bw.close();

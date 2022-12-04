@@ -43,10 +43,12 @@ public class ChiefDepartment extends Employee {
     public void netSalary(Account account, Float indexSalary, int someHolidays, int overtime, int year, int month) {
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
+            System.out.println(o.getEmployee().getSalaryDiary().length);
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
-                    o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i+1 );
-                        if (o.getEmployee().getSalaryDiary()[i] == 0) {
+                    // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
+                    // 1);
+                    if (o.getEmployee().getSalaryDiary()[i] == 0) {
                         o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
                         o.getEmployee().getSalaryDiary()[i] = year;
                         if (month == 1)
@@ -85,6 +87,7 @@ public class ChiefDepartment extends Employee {
                             i += 1;
                         if (month == 2)
                             i += 2;
+                        System.out.println(o.getEmployee().getSalaryDiary()[i]);
                         if (month == 3)
                             i += 3;
                         if (month == 4)
@@ -136,9 +139,10 @@ public class ChiefDepartment extends Employee {
         String str = "";
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
-            while (i < o.getEmployee().getSalaryDiary().length - 1) {
-
+            while (i < o.getEmployee().getSalaryDiary().length) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
+                    if (o.getEmployee().getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
+                        break;
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
                     i++;
                 } else
