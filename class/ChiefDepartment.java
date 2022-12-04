@@ -78,7 +78,8 @@ public class ChiefDepartment extends Employee {
                         break;
                     }
                     if (o.getEmployee().getSalaryDiary()[i] == year) {
-                        // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
+                        // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
+                        // 13);
                         if (month == 1)
                             i += 1;
                         if (month == 2)
@@ -109,8 +110,8 @@ public class ChiefDepartment extends Employee {
                         break;
                     } else
                         i += 13;
-                }
-                else break;
+                } else
+                    break;
             }
         }
 
@@ -120,15 +121,11 @@ public class ChiefDepartment extends Employee {
     public void outputSalary() {
         int i = 0;
         while (i < salaryDiary.length - 1) {
-            if (salaryDiary[i] == 0 && (i+1) % 14 == 0) {
-                break;
-            } else {
-                System.out.println("Nam " + getSalaryDiary()[i]);
+            System.out.println("Nam " + getSalaryDiary()[i]);
+            i++;
+            for (int j = 1; j <= 12; j++) {
+                System.out.println("Thang " + getSalaryDiary()[i] + " ");
                 i++;
-                for (int j = 1; j <= 12; j++) {
-                    System.out.println("Thang " + getSalaryDiary()[i] + " ");
-                    i++;
-                }
             }
         }
     }
@@ -138,7 +135,7 @@ public class ChiefDepartment extends Employee {
         String str = "";
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
-            while (i < o.getEmployee().getSalaryDiary().length-1) {
+            while (i < o.getEmployee().getSalaryDiary().length - 1) {
 
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);

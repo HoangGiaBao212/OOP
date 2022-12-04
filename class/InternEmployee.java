@@ -113,16 +113,15 @@ public class InternEmployee extends Employee {
 
     @Override
     public void outputSalary() {
-        // int i = 0;
-        // for (Account o : MenuHandle.listAccount) {
-        // while (o.getEmployee().getSalaryDiary()[i] != 0 &&
-        // o.getEmployee().getSalaryDiary()[i] % 13 == 0) {
-        // while (i <= 20) {
-        // System.out.println(o.getEmployee().getSalaryDiary()[i]);
-        // i++;
-        // }
-        // }
-        // }
+        int i = 0;
+        while (i < salaryDiary.length - 1) {
+            System.out.println("Nam " + getSalaryDiary()[i]);
+            i++;
+            for (int j = 1; j <= 12; j++) {
+                System.out.println("Thang " + getSalaryDiary()[i] + " ");
+                i++;
+            }
+        }
     }
 
     @Override
@@ -134,7 +133,6 @@ public class InternEmployee extends Employee {
 
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
-                    // System.out.println(str);
                     i++;
                 } else
                     break;
