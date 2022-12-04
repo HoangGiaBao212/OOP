@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.logging.Handler;
-
 import javax.management.modelmbean.ModelMBean;
 
 public class SalaryManager implements RoleOfManager {
@@ -50,7 +49,7 @@ public class SalaryManager implements RoleOfManager {
         } else {
             for (int i = 0; i < MenuHandle.m; i++) {
                 for (Account o : MenuHandle.listAccount) {
-                    if (o.getEmployee().getIdEmp().equals(MenuHandle.listDepartments[i].getDepartmentId())) {
+                    if (o.getEmployee().getIdEmp().equals(MenuHandle.listDepartments[i].getIdChief())) {
                         System.out.println("--------------------------------------------------------------");
                         System.out.println("|  ==> Input info salary of Chief Of Department    |");
                         System.out.println("--------------------------------------------------------------");
@@ -64,7 +63,7 @@ public class SalaryManager implements RoleOfManager {
                         someHolidays = MenuHandle.getInputNumber();
                         System.out.print(" ==> Input Overtime > ");
                         overtime = MenuHandle.getInputNumber();
-                        o.getEmployee().netSalary(indexSalary, someHolidays, overtime, year, month);
+                        o.getEmployee().netSalary(o,indexSalary, someHolidays, overtime, year, month);
                     }
                 }
 
@@ -85,7 +84,7 @@ public class SalaryManager implements RoleOfManager {
                             someHolidays = MenuHandle.getInputNumber();
                             System.out.print(" ==> Input overtime > ");
                             overtime = MenuHandle.getInputNumber();
-                            o.getEmployee().netSalary(indexSalary, someHolidays, overtime, year, month);
+                            o.getEmployee().netSalary(o,indexSalary, someHolidays, overtime, year, month);
                         }
                     }
                 }
@@ -99,9 +98,7 @@ public class SalaryManager implements RoleOfManager {
             System.out.println("LIST SALARY");
             account.getEmployee().outputSalary();
         }
-        // for (int i = 0; i < 12; i++) {
-        // System.out.println(MenuHandle.listAccount[0].getEmployee().salaryDiary[i]);
-        // }
+    
     }
 
     @Override

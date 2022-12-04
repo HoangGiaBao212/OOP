@@ -1,7 +1,5 @@
 
-// import java.util.Arrays;
 import java.util.Scanner;
-import java.util.logging.Handler;
 
 public class App {
     static Scanner scanner = new Scanner(System.in);
@@ -31,9 +29,5 @@ public class App {
         // AccountList accountList = new AccountList();
         // accountList.inputList();
         end();
-        // Long a = (long) 10000;
-        // Long b = (long) 12455555;
-        // Long c = a * b;
-        // System.out.println(c);
     }
 }

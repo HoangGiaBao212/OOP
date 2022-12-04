@@ -126,35 +126,22 @@ public class FileUtil {
                         break;
                     }
                     String[] txt = line.split("-");
+                    int len = txt.length;
+                    System.out.println(len);
                     String idEmp = txt[0];
                     int yearCount = 1;
-                    int j = 0;
+                    int j = 1;
                     while (true) {
                         if (MenuHandle.listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(idEmp)) {
-                            while (true) {
-                                MenuHandle.listAccount[i].getEmployee().salaryDiary = new long[j + 13];
-                                Long temp = Long.parseLong(txt[j + 1]);
-                                if (temp == 0) {
-                                    break;
-                                } else {
-                                    MenuHandle.listAccount[i].getEmployee().salaryDiary[j] = Long.parseLong(txt[j + 1]);
-                                    // System.out.println(
-                                    // "Nam" + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
-                                    for (int month = 1; month <= 12; month++) {
-                                        j += 1;
-                                        MenuHandle.listAccount[i].getEmployee().salaryDiary[j] = Long
-                                                .parseLong(txt[j + 1]);
-                                        // System.out.println(
-                                        // "Thang" + MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j]);
-                                    }
-                                    yearCount++;
-                                }
-                                if (yearCount == 10)
-                                    break;
-                            }
+                            if(j==len) break;
+                            MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays.copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j+1) ;    
+                            MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j-1] = Long.parseLong(txt[j]);
+                            // System.out.print(MenuHandle.listAccount[i].getEmployee().getSalaryDiary()[j-1]+ "\t");
+                            j++;
                         }
-                        i++;
+                        else i++;
                     }
+                    // MenuHandle.listAccount[i].getEmployee().salaryDiary = Arrays.copyOf(MenuHandle.listAccount[i].getEmployee().salaryDiary, j) ;    
                 }
                 br.close();
                 fr.close();
@@ -165,16 +152,22 @@ public class FileUtil {
     }
 
     public static void writeFileSalary() {
+        MenuHandle.clearScreen();
         try {
             FileWriter fw = new FileWriter(listSalaryTxt);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (int i = 0; i < MenuHandle.n; i++) {
-                bw.write(MenuHandle.listAccount[i].getEmployee().toStringSalary());
+                for(Account o: MenuHandle.listAccount){
+                    // System.out.println(MenuHandle.n);
+                    // System.out.println(o.getEmployee().getIdEmp() instanceof String );
+                bw.write(o.getEmployee().toStringSalary(o.getEmployee().getIdEmp()));
+                // System.out.println(MenuHandle.listAccount[i].getEmployee().toStringSalary(MenuHandle.listAccount[i].getEmployee().getIdEmp()));
                 bw.newLine();
             }
             bw.close();
             fw.close();
+
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

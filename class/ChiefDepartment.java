@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ChiefDepartment extends Employee {
@@ -39,108 +40,115 @@ public class ChiefDepartment extends Employee {
     }
 
     @Override
-    public Long netSalary(Float indexSalary, int someHolidays, int overtime, int year, int month) {
-        // Long totalSalary;
-        int i = -1;
-        while (true) {
-            i++;
-            salaryDiary = new long[i + 14];
-            if (salaryDiary[i] == 0) {
-                salaryDiary[i] = year;
-                if (month == 1) {
-                    i += 1;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 2) {
-                    i += 2;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
+    public void netSalary(Account account, Float indexSalary, int someHolidays, int overtime, int year, int month) {
+        int i = 0;
+        for (Account o : MenuHandle.listAccount) {
+            while (true) {
+                if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
+                    if (o.getEmployee().getSalaryDiary()[i] == 0) {
+                        o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
+                        o.getEmployee().getSalaryDiary()[i] = year;
+                        if (month == 1)
+                            i += 1;
+                        if (month == 2)
+                            i += 2;
+                        if (month == 3)
+                            i += 3;
+                        if (month == 4)
+                            i += 4;
+                        if (month == 5)
+                            i += 5;
+                        if (month == 6)
+                            i += 6;
+                        if (month == 7)
+                            i += 7;
+                        if (month == 8)
+                            i += 8;
+                        if (month == 9)
+                            i += 9;
+                        if (month == 10)
+                            i += 10;
+                        if (month == 11)
+                            i += 11;
+                        if (month == 12)
+                            i += 12;
+                        o.getEmployee()
+                                .getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                                        - someHolidays * baseSalary);
+                        break;
+                    }
+                    if (o.getEmployee().getSalaryDiary()[i] == year) {
+                        // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
+                        if (month == 1)
+                            i += 1;
+                        if (month == 2)
+                            i += 2;
+                        if (month == 3)
+                            i += 3;
+                        if (month == 4)
+                            i += 4;
+                        if (month == 5)
+                            i += 5;
+                        if (month == 6)
+                            i += 6;
+                        if (month == 7)
+                            i += 7;
+                        if (month == 8)
+                            i += 8;
+                        if (month == 9)
+                            i += 9;
+                        if (month == 10)
+                            i += 10;
+                        if (month == 11)
+                            i += 11;
+                        if (month == 12)
+                            i += 12;
+                        o.getEmployee()
+                                .getSalaryDiary()[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
+                                        - someHolidays * baseSalary);
+                        break;
+                    } else
+                        i += 13;
                 }
-
-                else if (month == 3) {
-                    i += 3;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 4) {
-                    i += 4;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 5) {
-                    i += 5;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 6) {
-                    i += 6;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 7) {
-                    i += 7;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 8) {
-                    i += 8;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 9) {
-                    i += 9;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 10) {
-                    i += 10;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 11) {
-                    i += 11;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    break;
-                } else if (month == 12) {
-                    i += 12;
-                    salaryDiary[i] = (long) (indexSalary * baseSalary * 26 + overtime * overtimeSalary
-                            - someHolidays * baseSalary);
-                    // i++;
-                    break;
-                }
-            } else {
-                i += 12;
+                else break;
             }
         }
-        return (long) salaryDiary[i];
+
     }
 
     @Override
     public void outputSalary() {
-        int yearCount = 1;
         int i = 0;
-        // while (true) {
-        // if (salaryDiary[i] == 0) {
-        // break;
-        // } else {
-        // // i++;
-        // for (int j = 1; j <= 12; j++) {
-        // i++;
-        // System.out.println("Salary month " + j + " > ");
-        // System.out.println(salaryDiary[i]);
-        // }
-        // i++;
-        // yearCount++;
-        // }
-        // if (yearCount == 10)
-        // break;
-        // }
-        for (Account o : MenuHandle.listAccount) {
-            System.out.println(o.getEmployee().getSalaryDiary()[i]);
+        while (i < salaryDiary.length - 1) {
+            if (salaryDiary[i] == 0 && (i+1) % 14 == 0) {
+                break;
+            } else {
+                System.out.println("Nam " + getSalaryDiary()[i]);
+                i++;
+                for (int j = 1; j <= 12; j++) {
+                    System.out.println("Thang " + getSalaryDiary()[i] + " ");
+                    i++;
+                }
+            }
         }
+    }
+
+    @Override
+    public String toStringSalary(String id) {
+        String str = "";
+        int i = 0;
+        for (Account o : MenuHandle.listAccount) {
+            while (i < o.getEmployee().getSalaryDiary().length-1) {
+
+                if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
+                    str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
+                    // System.out.println(str);
+                    i++;
+                } else
+                    break;
+            }
+        }
+        return getIdEmp() + str;
     }
 
     @Override
@@ -149,27 +157,4 @@ public class ChiefDepartment extends Employee {
                 + getGender() + "-" + getEmail() + "-" + getAddress() + "-" + getPhone();
     }
 
-    @Override
-    public String toStringSalary() {
-        String str = "";
-        int yearCount = 0;
-        int i = 0;
-        while (true) {
-            // i++;
-            // if (salaryDiary[i] == 0) {
-            // break;
-            // } else {
-            str += "-" + String.valueOf(salaryDiary[i]);
-            for (int j = 1; j <= 12; j++) {
-                i += 1;
-                str += "-" + String.valueOf(salaryDiary[i]);
-            }
-            i += 1;
-            yearCount++;
-            // }
-            if (yearCount == 10)
-                break;
-        }
-        return getIdEmp() + str;
-    }
 }
