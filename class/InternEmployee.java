@@ -40,7 +40,8 @@ public class InternEmployee extends Employee {
         for (Account o : MenuHandle.listAccount) {
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
-                    o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i+1 );
+                    // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
+                    // 1);
                     if (o.getEmployee().getSalaryDiary()[i] == 0) {
                         o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
                         o.getEmployee().getSalaryDiary()[i] = year;
@@ -74,6 +75,8 @@ public class InternEmployee extends Employee {
                         break;
                     }
                     if (o.getEmployee().getSalaryDiary()[i] == year) {
+                        // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
+                        // 13);
                         if (month == 1)
                             i += 1;
                         if (month == 2)
@@ -104,8 +107,8 @@ public class InternEmployee extends Employee {
                         break;
                     } else
                         i += 13;
-                }
-                else break;
+                } else
+                    break;
             }
         }
 
@@ -113,13 +116,15 @@ public class InternEmployee extends Employee {
 
     @Override
     public void outputSalary() {
-        int i = 0;
-        while (i < salaryDiary.length - 1) {
-            System.out.println("Nam " + getSalaryDiary()[i]);
-            i++;
+        System.out.printf("\n|%-15s|", getIdEmp());
+        // System.out.println(getSalaryDiary().length);
+        for (int i = 0; i < getSalaryDiary().length - 1; i++) {
+            if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
+                break;
+            System.out.printf("%-15s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
-                System.out.println("Thang " + getSalaryDiary()[i] + " ");
                 i++;
+                System.out.printf("%-15s|", getSalaryDiary()[i]);
             }
         }
     }
@@ -140,7 +145,6 @@ public class InternEmployee extends Employee {
         }
         return getIdEmp() + str;
     }
-
 
     @Override
     public String toString() {

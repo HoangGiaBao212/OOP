@@ -19,11 +19,11 @@ public class App {
 
     public static void main(String[] args) {
         init();
-        start();
+        // start();
         // MenuHandle.clearScreen();
-        // SalaryManager salaryManager = new SalaryManager();
+        SalaryManager salaryManager = new SalaryManager();
         // salaryManager.inputList();
-            // salaryManager.outputList();
+        salaryManager.outputList();
         // DepartmentManager departmentManager = new DepartmentManager();
         // departmentManager.inputList();
         // AccountList accountList = new AccountList();

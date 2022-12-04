@@ -41,7 +41,8 @@ public class OfficialEmployee extends Employee {
         for (Account o : MenuHandle.listAccount) {
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
-                    o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i+1 );
+                    // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
+                    // 1);
                     if (o.getEmployee().getSalaryDiary()[i] == 0) {
                         o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i + 13);
                         o.getEmployee().getSalaryDiary()[i] = year;
@@ -75,6 +76,8 @@ public class OfficialEmployee extends Employee {
                         break;
                     }
                     if (o.getEmployee().getSalaryDiary()[i] == year) {
+                        // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
+                        // 13);
                         if (month == 1)
                             i += 1;
                         if (month == 2)
@@ -112,27 +115,27 @@ public class OfficialEmployee extends Employee {
 
     }
 
-
     @Override
     public void outputSalary() {
-        int i = 0;
-        while (i < salaryDiary.length - 1) {
-            System.out.println("Nam " + getSalaryDiary()[i]);
-            i++;
+        System.out.printf("\n|%-15s|", getIdEmp());
+        // System.out.println(getSalaryDiary().length);
+        for (int i = 0; i < getSalaryDiary().length - 1; i++) {
+            if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
+                break;
+            System.out.printf("%-15s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
-                System.out.println("Thang " + getSalaryDiary()[i] + " ");
                 i++;
+                System.out.printf("%-15s|", getSalaryDiary()[i]);
             }
         }
     }
-    
+
     @Override
     public String toStringSalary(String id) {
         String str = "";
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
             while (i < o.getEmployee().getSalaryDiary().length - 1) {
-
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
                     i++;
