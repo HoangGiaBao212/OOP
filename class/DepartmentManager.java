@@ -102,10 +102,7 @@ public class DepartmentManager implements RoleOfManager {
             for (int i = 0; i < MenuHandle.m; i++) {
                 if (MenuHandle.listDepartments[i].getDepartmentId().equalsIgnoreCase(idDepEdit)) {
                     int option;
-                    System.out.println("------------------------------");
-                    System.out.println("| 1.Edit full     |");
-                    System.out.println("| 2.Edit each one |");
-                    System.out.print("Input option: ");
+                    MenuContent.optionEdit();
                     option = scanner.nextInt();
                     switch (option) {
                         case 1 -> {
@@ -113,18 +110,20 @@ public class DepartmentManager implements RoleOfManager {
                         }
                         case 2 -> {
                             int optionEditEachOne;
-                            System.out.println("1.Edit id department");
-                            System.out.println("2.Edit name department");
-                            System.out.println("3.Edit amount employee of department");
+                            System.out.println("--------------------------------------------------");
+                            System.out.println("| 1.Edit id department                           |");
+                            System.out.println("| 2.Edit name department                         |");
+                            System.out.println("| 3.Edit amount employee of department           |");
+                            System.out.println("--------------------------------------------------");
                             optionEditEachOne = scanner.nextInt();
                             switch (optionEditEachOne) {
                                 case 1 -> MenuHandle.listDepartments[i].setDepartmentId(null);
                                 case 2 -> MenuHandle.listDepartments[i].setDepartmentName(null);
-
                                 case 3 -> {
                                     MenuHandle.listDepartments[i].setMembers(i);
                                     MenuHandle.listDepartments[i]
                                             .setIdEmployee(new String[MenuHandle.listDepartments[i].getMembers()]);
+                                    break;
                                 }
                                 default -> {
                                     MenuContent.choiceWrong();
