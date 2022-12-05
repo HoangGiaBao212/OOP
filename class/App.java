@@ -19,13 +19,16 @@ public class App {
 
     public static void main(String[] args) {
         init();
-        start();
+        // start();
+        Contract contract = new Contract();
+        contract.input();
+        contract.output();
         // MenuHandle.clearScreen();
-        SalaryManager salaryManager = new SalaryManager();
+        // SalaryManager salaryManager = new SalaryManager();
         // salaryManager.inputList();
-        salaryManager.outputList();
-        salaryManager.edit(null);
-        salaryManager.outputList();
+        // salaryManager.outputList();
+        // salaryManager.edit(null);
+        // salaryManager.outputList();
 
         end();
     }

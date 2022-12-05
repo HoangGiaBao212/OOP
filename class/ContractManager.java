@@ -67,6 +67,7 @@ public class ContractManager implements RoleOfManager {
 
     @Override
     public void add() {
+        boolean flag = false;
         System.out.println("---------------------------------------");
         System.out.println("|             ADD CONTRACT            |");
         System.out.println("---------------------------------------\n");
@@ -80,20 +81,24 @@ public class ContractManager implements RoleOfManager {
                         Contract contract = new Contract();
                         contract.input();
                         MenuHandle.listAccount[i].getEmployee().setContract(contract);
+                        flag = true;
+
                     }
                 }
             }
         } else {
             System.out.println("Employee is exits or don't have employee with id: " + idEmpAdd);
+        }   
+        if(!flag){
+            MenuContent.noteAddSuccess();
+        }else{
+            MenuContent.noteAddFailure();
         }
-
-        System.out.println("---------------------------------------------------------");
-        System.out.println("|               Add Contract Successful!                |");
-        System.out.println("---------------------------------------------------------");
     }
 
     @Override
     public void edit(String idEdit) {
+        boolean flag = false;
         if (idEdit == null) {
             System.out.println("----------------------------------------------------");
             System.out.println("|            EDIT INFORMATION IN CONTRACT          |");
@@ -135,18 +140,21 @@ public class ContractManager implements RoleOfManager {
                                         MenuHandle.listAccount[i].getEmployee().getContract()
                                                 .setStatus("Still Working");
                                     }
+                                    flag = true;
                                     break;
                                 default:
                                     MenuContent.noteBye();
                                     break;
                             }
                         }
+                        flag = true;
                         break;
                     case 2:
                         if (MenuHandle.listAccount[i].getEmployee().getContract().getContractID()
                                 .equalsIgnoreCase(idEdit)) {
                             MenuHandle.listAccount[i].getEmployee().getContract().input();
                         }
+                        flag = true;
                         break;
                     default:
                         MenuContent.choiceWrong();
@@ -154,7 +162,12 @@ public class ContractManager implements RoleOfManager {
                 }
             }
         }
-        MenuContent.noteChangeSuccess();
+        if(!flag){
+            MenuContent.noteChangeSuccess();
+        }else{
+            MenuContent.noteChangeFailure();
+        }
+        
     }
 
     @Override

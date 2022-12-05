@@ -436,10 +436,39 @@ public class MenuHandle {
             }
         }
     }
-
     public static String getToday(String format) {
         Date date = new Date();
         return new SimpleDateFormat(format).format(date);
+    }
+    //year = 12-6-2018
+    //start = 12-8-2018
+    //end = 12-6-2022
+    // year = 2020
+    // month = 6
+    public static boolean checkStatus(Account o,int year,int month){
+        String txt;
+        String txt2;
+        try{
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // 02/12/2022
+            txt = sdf.format(o.getEmployee().getContract().getTimeStart());
+            txt2 = sdf.format(date);
+            String []start = txt.split("/");
+            String []end = txt2.split("/");
+            // for(int i = Integer.parseInt(start[2]);i  < )
+            if(Integer.parseInt(start[2]) <= year && Integer.parseInt(end[2]) >= year){
+                if(Integer.parseInt(start[1]) <= month){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }finally{
+                // System.out.println("Error");
+                return false;
+        }
     }
 }
 
