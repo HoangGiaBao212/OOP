@@ -119,25 +119,29 @@ public class InternEmployee extends Employee {
 
     @Override
     public void outputSalary() {
-        System.out.printf("\n|%-14s|", getIdEmp());
+        System.out.printf("\n|   %-12s|", getIdEmp());
         for (int i = 0; i < getSalaryDiary().length - 1; i++) {
             if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
                 break;
-            System.out.printf("%-14s|", getSalaryDiary()[i]);
+            System.out.printf("   %-12s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
                 i++;
                 if (getSalaryDiary()[i] == 0) {
-                    System.out.printf("%-15s|", "  No data");
+                    System.out.printf("   %-12s|", "No data");
                 } else
+<<<<<<< HEAD
                     System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
+=======
+                    System.out.printf("   %-12s|", formatter.format(getSalaryDiary()[i]));
+>>>>>>> 8d025d92ea19742d53149eea15da1eed3f6cc814
             }
             if (i < getSalaryDiary().length - 12) {
                 System.out.println();
-                System.out.printf("|%-14s|", "");
+                System.out.printf("|   %-12s|", "");
             }
         }
         System.out.print(
-                "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     @Override

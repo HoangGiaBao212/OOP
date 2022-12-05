@@ -21,15 +21,12 @@ public class App {
         init();
         start();
         // MenuHandle.clearScreen();
-        // SalaryManager salaryManager = new SalaryManager();
+        SalaryManager salaryManager = new SalaryManager();
         // salaryManager.inputList();
-        // salaryManager.outputList();
-        // salaryManager.edit(null);
-        // salaryManager.outputList();
-        // DepartmentManager departmentManager = new DepartmentManager();
-        // departmentManager.inputList();
-        // AccountList accountList = new AccountList();
-        // accountList.inputList();
+        salaryManager.outputList();
+        salaryManager.edit(null);
+        salaryManager.outputList();
+
         end();
     }
 }

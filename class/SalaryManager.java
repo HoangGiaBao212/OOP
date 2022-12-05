@@ -110,6 +110,11 @@ public class SalaryManager implements RoleOfManager {
             System.out.print(
                     "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (Account account : MenuHandle.listAccount) {
+                if (d.getIdChief().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
+                    account.getEmployee().outputSalary();
+                }
+            }
+            for (Account account : MenuHandle.listAccount) {
                 if (MenuHandle.checkIdOfDep(account.getEmployee().getIdEmp(), d.getDepartmentId()))
                     account.getEmployee().outputSalary();
             }
