@@ -19,20 +19,16 @@ public class App {
 
     public static void main(String[] args) {
         init();
-        // start();
-        Contract contract = new Contract();
-        contract.input();
-        contract.output();
+        start();
+        // Contract contract = new Contract();
+        // contract.input();
+        // contract.output();
         // MenuHandle.clearScreen();
         // SalaryManager salaryManager = new SalaryManager();
         // salaryManager.inputList();
         // salaryManager.outputList();
         // salaryManager.edit(null);
         // salaryManager.outputList();
-<<<<<<< HEAD
-
-=======
->>>>>>> 99781064f4e36cbaf651bd1dee01c15b0a13fe3a
         end();
     }
 }

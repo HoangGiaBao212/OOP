@@ -1,6 +1,6 @@
 import java.util.Scanner;
-import java.util.logging.Handler;
-import javax.management.modelmbean.ModelMBean;
+// import java.util.logging.Handler;
+// import javax.management.modelmbean.ModelMBean;
 
 public class SalaryManager implements RoleOfManager {
 
@@ -94,7 +94,7 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void add() {
-        String idEmpAdd;
+        // String idEmpAdd;
 
     }
 
@@ -133,7 +133,7 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void statistics() {
-        MenuContent.quantityCount("Salary", MenuHandle.n);
+        MenuContent.quantityCount();
     }
 
     @Override
@@ -150,7 +150,7 @@ public class SalaryManager implements RoleOfManager {
                     "December");
             System.out.print(
                     "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("Enter if employee to edit");
+            System.out.print("Enter if employee to find: ");
             idFind = scanner.nextLine();
             for (Account o : MenuHandle.listAccount) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(idFind)) {

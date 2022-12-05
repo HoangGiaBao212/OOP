@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class MenuHandle {
     static Scanner scanner = new Scanner(System.in);
 
@@ -228,7 +230,17 @@ public class MenuHandle {
                     option(title);
                 }
                 case 7 -> {
+                    if(title.equals("Account Employee"))
+                        listAccounts.statistics();
+                    else if(title.equals("Contract"))
+                        listContract.statistics();
+                    else if(title.equals("Salary"))
+                        listSalary.statistics();
+                    else
+                        listDepartment.statistics();
+                    option(title);
                     // Thống kê
+                    break;
                 }
                 case 8 -> {
                     menu();
@@ -257,7 +269,7 @@ public class MenuHandle {
         String username;
         String password;
         System.out.println("--------------------------------------------------------------------");
-        System.out.println("|                                Login                             |");
+        System.out.println("|                              LOGIN                               |");
         System.out.println("--------------------------------------------------------------------");
         username = getUsername();
         System.out.print("==> Enter password: ");
@@ -356,9 +368,9 @@ public class MenuHandle {
 
     public static void iForManager() {
         clearScreen();
-        System.out.println("--------------------------------------------------------");
-        System.out.println("|                 Welcome back,Manager                 |");
-        System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("|                        Welcome back,Manager   0                   |");
+        System.out.println("--------------------------------------------------------------------");
         menu();
     }
 
@@ -473,6 +485,5 @@ public class MenuHandle {
         }
     }
 }
-
 // Đăng nhập với tư cách nhân viên xem thông tin cá nhân,xem ds nhân viên,xem ds
 // dự án,xem ds phòng ban

@@ -163,6 +163,7 @@ public class DepartmentManager implements RoleOfManager {
 
     @Override
     public void statistics() {
-        MenuContent.quantityCount("Department", MenuHandle.n);
+        MenuContent.quantityCount();
+        System.out.printf("Currently we have %s department",MenuHandle.m);
     }
 }
