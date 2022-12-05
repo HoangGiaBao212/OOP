@@ -26,6 +26,8 @@ public class MenuHandle {
         return idDep;
     }
 
+    // public Boolean get
+
     public static boolean checkIdEmployee(String id) {
         for (int i = 0; i < MenuHandle.n; i++) {
             if (listAccount[i].getEmployee().getIdEmp().equalsIgnoreCase(id)) {

@@ -29,7 +29,10 @@ public class App {
         // salaryManager.outputList();
         // salaryManager.edit(null);
         // salaryManager.outputList();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99781064f4e36cbaf651bd1dee01c15b0a13fe3a
         end();
     }
 }
