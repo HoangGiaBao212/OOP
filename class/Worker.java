@@ -1,7 +1,7 @@
 // import java.time.Year;
 
 public abstract class Worker extends Person {
-    protected long[] salaryDiary = new long[100];
+    protected long[] salaryDiary = new long[1];
 
     public Worker() {
 
@@ -33,7 +33,8 @@ public abstract class Worker extends Person {
         super.output();
     }
 
-    public abstract void netSalary(Account account,Float indexSalary, int someHolidays, int overtime, int year, int month);
+    public abstract void netSalary(Account account, Float indexSalary, int someHolidays, int overtime, int year,
+            int month);
 
     public abstract void outputSalary();
 

@@ -45,7 +45,6 @@ public class ChiefDepartment extends Employee {
     public void netSalary(Account account, Float indexSalary, int someHolidays, int overtime, int year, int month) {
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
-            System.out.println(o.getEmployee().getSalaryDiary().length);
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
                     // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
@@ -132,7 +131,10 @@ public class ChiefDepartment extends Employee {
             System.out.printf("%-15s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
                 i++;
-                System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
+                if (getSalaryDiary()[i] == 0) {
+                    System.out.printf("%-15s|", "  No data");
+                } else
+                    System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
             }
             if (i < getSalaryDiary().length - 12) {
                 System.out.println();

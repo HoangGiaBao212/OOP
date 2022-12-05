@@ -94,18 +94,25 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void outputList() {
-        // System.out.println("LIST SALARY");
-        System.out.println(
-                "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf(
-                "|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|",
-                "Id Employee", "Year", "January",
-                "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
-                "December");
-        System.out.print(
-                "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        for (Account account : MenuHandle.listAccount) {
-            account.getEmployee().outputSalary();
+        for (Department d : MenuHandle.listDepartments) {
+            System.out.print(
+                    "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf(
+                    "\n|                                                                               %-144s|",
+                    "List salary for employee of department " + d.getDepartmentName());
+            System.out.println(
+                    "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf(
+                    "|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|",
+                    "Id Employee", "Year", "January",
+                    "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
+                    "December");
+            System.out.print(
+                    "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            for (Account account : MenuHandle.listAccount) {
+                if (MenuHandle.checkIdOfDep(account.getEmployee().getIdEmp(), d.getDepartmentId()))
+                    account.getEmployee().outputSalary();
+            }
         }
     }
 
@@ -125,7 +132,7 @@ public class SalaryManager implements RoleOfManager {
         if (MenuHandle.n < 0)
             MenuContent.printNoData();
         else {
-            System.out.println("Enter if employee to edit");
+            System.out.print(" ==> Enter if employee to edit  ");
             idEdit = scanner.nextLine();
             for (Account o : MenuHandle.listAccount) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(idEdit)) {
@@ -137,7 +144,7 @@ public class SalaryManager implements RoleOfManager {
                     System.out.print(" ==> Input month > ");
                     month = MenuHandle.getInputNumber();
                     System.out.print(" ==> Input indexSalary > ");
-                    indexSalary = MenuHandle.getInputNumber();
+                    indexSalary = MenuHandle.getInputNumberFloat();
                     System.out.print(" ==> Input someHolidays > ");
                     someHolidays = MenuHandle.getInputNumber();
                     System.out.print(" ==> Input overtime > ");

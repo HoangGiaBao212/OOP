@@ -22,7 +22,9 @@ public class App {
         // start();
         // MenuHandle.clearScreen();
         SalaryManager salaryManager = new SalaryManager();
-        salaryManager.inputList();
+        // salaryManager.inputList();
+        salaryManager.outputList();
+        salaryManager.edit(null);
         salaryManager.outputList();
         // DepartmentManager departmentManager = new DepartmentManager();
         // departmentManager.inputList();

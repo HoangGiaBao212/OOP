@@ -35,11 +35,36 @@ public class MenuHandle {
         return false;
     }
 
+    public static boolean checkIdOfDep(String idEmp, String idDep) {
+        for (Department d : listDepartments) {
+            if (d.getDepartmentId().equalsIgnoreCase(idDep)) {
+                for (int i = 0; i < d.getMembers(); i++) {
+                    if (d.getIdEmployee()[i].equalsIgnoreCase(idEmp)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public static int getInputNumber() {
         int choice;
         while (true) {
             try {
                 choice = Integer.parseInt(getInput());
+                return choice;
+            } catch (Exception e) {
+                MenuContent.choiceWrong();
+            }
+        }
+    }
+
+    public static Float getInputNumberFloat() {
+        Float choice;
+        while (true) {
+            try {
+                choice = Float.parseFloat(getInput());
                 return choice;
             } catch (Exception e) {
                 MenuContent.choiceWrong();
@@ -353,8 +378,8 @@ public class MenuHandle {
             inputId = inputId(id);
         }
         // while (!checkIdEmployee(inputId)) {
-        //     System.out.print("Employee ID is already exist.Enter again: ");
-        //     inputId = inputId(inputId);
+        // System.out.print("Employee ID is already exist.Enter again: ");
+        // inputId = inputId(inputId);
         // }
         return inputId;
     }
@@ -378,39 +403,41 @@ public class MenuHandle {
         }
         return date;
     }
-    public static boolean isExpire(String date){
-        if(date.isEmpty() || date.trim().equals("")){
+
+    public static boolean isExpire(String date) {
+        if (date.isEmpty() || date.trim().equals("")) {
             return false;
-        }else{
-                SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yyyy"); // 02/12/2022
-                    Date d=null;
-                    Date d1=null;
-                String today = getToday("dd/MM/yyyy");
-                try {
-                    //System.out.println("expdate>> "+date);
-                    //System.out.println("today>> "+today+"\n\n");
-                    d = sdf.parse(date);
-                    d1 = sdf.parse(today);
-                    if(d1.compareTo(d) <0){// not expired
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // 02/12/2022
+            Date d = null;
+            Date d1 = null;
+            String today = getToday("dd/MM/yyyy");
+            try {
+                // System.out.println("expdate>> "+date);
+                // System.out.println("today>> "+today+"\n\n");
+                d = sdf.parse(date);
+                d1 = sdf.parse(today);
+                if (d1.compareTo(d) < 0) {// not expired
+                    return false;
+                } else if (d.compareTo(d1) == 0) {// both date are same
+                    if (d.getTime() < d1.getTime()) {// not expired
                         return false;
-                    }else if(d.compareTo(d1)==0){// both date are same
-                                if(d.getTime() < d1.getTime()){// not expired
-                                    return false;
-                                }else if(d.getTime() == d1.getTime()){//expired
-                                    return true;
-                                }else{//expired
-                                    return true;
-                                }
-                    }else{//expired
+                    } else if (d.getTime() == d1.getTime()) {// expired
+                        return true;
+                    } else {// expired
                         return true;
                     }
-                } catch (ParseException e) {
-                    e.printStackTrace();                    
-                    return false;
+                } else {// expired
+                    return true;
                 }
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
     }
-    public static String getToday(String format){
+
+    public static String getToday(String format) {
         Date date = new Date();
         return new SimpleDateFormat(format).format(date);
     }
