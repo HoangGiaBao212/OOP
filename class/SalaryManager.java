@@ -94,7 +94,6 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void outputList() {
-<<<<<<< HEAD
         for (Department d : MenuHandle.listDepartments) {
             System.out.print(
                     "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -111,23 +110,14 @@ public class SalaryManager implements RoleOfManager {
             System.out.print(
                     "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (Account account : MenuHandle.listAccount) {
+                if (d.getIdChief().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
+                    account.getEmployee().outputSalary();
+                }
+            }
+            for (Account account : MenuHandle.listAccount) {
                 if (MenuHandle.checkIdOfDep(account.getEmployee().getIdEmp(), d.getDepartmentId()))
                     account.getEmployee().outputSalary();
             }
-=======
-        // System.out.println("LIST SALARY");
-        System.out.println(
-                "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf(
-                "|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|  %-12s|",
-                "Id Employee", "Year", "January",
-                "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
-                "December");
-        System.out.print(
-                "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        for (Account account : MenuHandle.listAccount) {
-            account.getEmployee().outputSalary();
->>>>>>> 4b71bb29c07916a64dc8e3f3b7d952f825f6b217
         }
     }
 
