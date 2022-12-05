@@ -11,35 +11,6 @@ public class SalaryManager implements RoleOfManager {
     int overtime;
     int year;
     int month;
-    // indexSalary*baseSalary*26 + giolamthem*luonglamthem - baseSalary*someHolidays
-
-    /*
-     * 0 là năm
-     * 1-> 12 thánh (lương)
-     * 13
-     * 14->25
-     * int yearCount = 1;
-     * for (int i=1;;i++){
-     * yearCount++;
-     * sout(nhap du lieu nam )
-     * input ==> i;
-     * i++;
-     * sout(nhap thang 1)
-     * input ==> i;
-     * i++;
-     * ...........
-     * 
-     * if (yearCount = bienchousernhapvao) break;
-     * 
-     * }
-     * [nam][thang 1][][][][][][] i+12
-     * i+12+1
-     * i+12+2
-     * if(a[i+12] == namnhapvao)
-     * if (a[i+12+1] == thang1) xuat thang1
-     * 
-     * 
-     */
 
     @Override
     public void inputList() {
