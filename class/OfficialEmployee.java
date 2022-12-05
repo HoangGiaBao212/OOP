@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -5,6 +6,7 @@ public class OfficialEmployee extends Employee {
 
     static Scanner scanner = new Scanner(System.in);
 
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     private final Long baseSalary = (long) 550000;
     private final int overtimeSalary = 25000;
 
@@ -39,6 +41,7 @@ public class OfficialEmployee extends Employee {
     public void netSalary(Account account, Float indexSalary, int someHolidays, int overtime, int year, int month) {
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
+            System.out.println(o.getEmployee().getSalaryDiary().length);
             while (true) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(account.getEmployee().getIdEmp())) {
                     // o.getEmployee().salaryDiary = Arrays.copyOf(o.getEmployee().salaryDiary, i +
@@ -82,6 +85,7 @@ public class OfficialEmployee extends Employee {
                             i += 1;
                         if (month == 2)
                             i += 2;
+                        System.out.println(o.getEmployee().getSalaryDiary()[i]);
                         if (month == 3)
                             i += 3;
                         if (month == 4)
@@ -118,16 +122,21 @@ public class OfficialEmployee extends Employee {
     @Override
     public void outputSalary() {
         System.out.printf("\n|%-15s|", getIdEmp());
-        // System.out.println(getSalaryDiary().length);
         for (int i = 0; i < getSalaryDiary().length - 1; i++) {
             if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
                 break;
             System.out.printf("%-15s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
                 i++;
-                System.out.printf("%-15s|", getSalaryDiary()[i]);
+                System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
+            }
+            if (i < getSalaryDiary().length - 12) {
+                System.out.println();
+                System.out.printf("|%-15s|", "");
             }
         }
+        System.out.print(
+                "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     @Override
@@ -135,8 +144,10 @@ public class OfficialEmployee extends Employee {
         String str = "";
         int i = 0;
         for (Account o : MenuHandle.listAccount) {
-            while (i < o.getEmployee().getSalaryDiary().length - 1) {
+            while (i < o.getEmployee().getSalaryDiary().length) {
                 if (o.getEmployee().getIdEmp().equalsIgnoreCase(id)) {
+                    if (o.getEmployee().getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
+                        break;
                     str += "-" + Long.toString(o.getEmployee().getSalaryDiary()[i]);
                     i++;
                 } else

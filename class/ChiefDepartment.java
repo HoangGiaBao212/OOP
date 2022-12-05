@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -5,6 +6,7 @@ public class ChiefDepartment extends Employee {
 
     static Scanner scanner = new Scanner(System.in);
 
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     private final double baseSalary = 600000;
     private final int overtimeSalary = 50000;
 
@@ -124,16 +126,21 @@ public class ChiefDepartment extends Employee {
     @Override
     public void outputSalary() {
         System.out.printf("\n|%-15s|", getIdEmp());
-        // System.out.println(getSalaryDiary().length);
         for (int i = 0; i < getSalaryDiary().length - 1; i++) {
             if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
                 break;
             System.out.printf("%-15s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
                 i++;
-                System.out.printf("%-15s|", getSalaryDiary()[i]);
+                System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
+            }
+            if (i < getSalaryDiary().length - 12) {
+                System.out.println();
+                System.out.printf("|%-15s|", "");
             }
         }
+        System.out.print(
+                "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     @Override
