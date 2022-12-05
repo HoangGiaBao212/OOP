@@ -122,7 +122,30 @@ public class SalaryManager implements RoleOfManager {
 
     @Override
     public void edit(String idEdit) {
-
+        if (MenuHandle.n < 0)
+            MenuContent.printNoData();
+        else {
+            System.out.println("Enter if employee to edit");
+            idEdit = scanner.nextLine();
+            for (Account o : MenuHandle.listAccount) {
+                if (o.getEmployee().getIdEmp().equalsIgnoreCase(idEdit)) {
+                    System.out.println("--------------------------------------------------------------");
+                    System.out.print("|  ==> Input info salary of employee                          |\n");
+                    System.out.println("--------------------------------------------------------------");
+                    System.out.print(" ==> Input year > ");
+                    year = MenuHandle.getInputNumber();
+                    System.out.print(" ==> Input month > ");
+                    month = MenuHandle.getInputNumber();
+                    System.out.print(" ==> Input indexSalary > ");
+                    indexSalary = MenuHandle.getInputNumber();
+                    System.out.print(" ==> Input someHolidays > ");
+                    someHolidays = MenuHandle.getInputNumber();
+                    System.out.print(" ==> Input overtime > ");
+                    overtime = MenuHandle.getInputNumber();
+                    o.getEmployee().netSalary(o, indexSalary, someHolidays, overtime, year, month);
+                }
+            }
+        }
     }
 
     @Override
@@ -131,8 +154,26 @@ public class SalaryManager implements RoleOfManager {
     }
 
     @Override
-    public void find(String idEmp) {
-        // TODO Auto-generated method stub
-
+    public void find(String idFind) {
+        if (MenuHandle.n < 0)
+            MenuContent.printNoData();
+        else {
+            System.out.println(
+                    "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf(
+                    "|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|  %-13s|",
+                    "Id Employee", "Year", "January",
+                    "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
+                    "December");
+            System.out.print(
+                    "\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("Enter if employee to edit");
+            idFind = scanner.nextLine();
+            for (Account o : MenuHandle.listAccount) {
+                if (o.getEmployee().getIdEmp().equalsIgnoreCase(idFind)) {
+                    o.getEmployee().outputSalary();
+                }
+            }
+        }
     }
 }
