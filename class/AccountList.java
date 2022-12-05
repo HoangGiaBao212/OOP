@@ -154,6 +154,7 @@ public class AccountList implements RoleOfManager {
     @Override
     public void edit(String idEdit) {
         // edit username or password
+        boolean flag = false;
         int key, temp;
         if (idEdit == null) {
             System.out.println("----------------------------------------------------");
@@ -197,19 +198,34 @@ public class AccountList implements RoleOfManager {
                                 case 1:
                                     MenuContent.menuOptionTypeEmployee();
                                     key = Integer.parseInt(scanner.nextLine());
+                                    if(MenuHandle.listAccount[i].getEmployee().getPosition().equals("admin")){
+                                        System.out.println("----------------Admin cannot be change position----------------");
+                                        flag = true;
+                                        break;
+                                    }
                                     switch (key) {
                                         case 1:
                                             ((ChiefDepartment) MenuHandle.listAccount[i].getEmployee())
-                                                    .setPosition("Chief Department");
+                                                    .setPosition("Chief Of Department");
                                             break;
                                         case 2:
                                             ((OfficialEmployee) MenuHandle.listAccount[i].getEmployee())
                                                     .setPosition("Official Employee");
                                             break;
                                         case 3:
-                                            ((InternEmployee) MenuHandle.listAccount[i].getEmployee())
-                                                    .setPosition("Intern Employee");
+                                            if(MenuHandle.listAccount[i].getEmployee().getPosition().equals("Chief Of Department")){
+                                                System.out.println("You can't change into this position");
+                                                flag = true;
+                                                break;
+                                            }else{
+                                                MenuHandle.listAccount[i].getEmployee().setPosition("Intern Employee");
+                                            // Account account = new Account();
+                                            // account = MenuHandle.listAccount[i];
+                                            // account.setEmployee(new InternEmployee("CD001","Intern Employee"));
+                                            // MenuHandle.listAccount[i] = account;
                                             break;
+                                            }
+
                                         default:
                                             MenuContent.choiceWrong();
                                             break;
@@ -257,7 +273,13 @@ public class AccountList implements RoleOfManager {
                         break;
                 }
             }
-            MenuContent.noteChangeSuccess();
+            if(!flag){
+                MenuContent.noteChangeSuccess();
+            }
+            else{
+                MenuContent.noteChangeFailure();
+            }
+            
         }
 
     }

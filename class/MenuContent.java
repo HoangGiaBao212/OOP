@@ -46,9 +46,9 @@ public class MenuContent {
     public static void menuOptionTypeEmployee() {
         System.out.println("Select employee type: ");
         System.out.println("----------------------------------------------");
-        // System.out.println("| 1.Chief Department |");
-        System.out.println("|  1.Official Employee                       |");
-        System.out.println("|  2.Intern Employee                         |");
+        System.out.println("| 1.Chief Department                         |");
+        System.out.println("| 2.Official Employee                        |");
+        System.out.println("| 3.Intern Employee                          |");
         System.out.println("----------------------------------------------");
         System.out.print("==> Enter choice: ");
     }
@@ -64,7 +64,11 @@ public class MenuContent {
         System.out.println("|         Change Information Successful!        |");
         System.out.println("-------------------------------------------------");
     }
-
+    public static void noteChangeFailure() {
+        System.out.println("-------------------------------------------------");
+        System.out.println("|         Change Information Failure!           |");
+        System.out.println("-------------------------------------------------");
+    }
     public static void noteSuccess(String title) {
         System.out.println("-------------------------------------------------");
         System.out.printf("|%15s %-15s|", title, "successful!              |");

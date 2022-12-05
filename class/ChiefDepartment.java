@@ -124,25 +124,21 @@ public class ChiefDepartment extends Employee {
 
     @Override
     public void outputSalary() {
-        System.out.printf("\n|%-14s|", getIdEmp());
+        System.out.printf("\n|%-15s|", getIdEmp());
         for (int i = 0; i < getSalaryDiary().length - 1; i++) {
             if (getSalaryDiary()[i] == 0 && i % 13 == 0 && i != 0)
                 break;
-            System.out.printf("%-14s|", getSalaryDiary()[i]);
+            System.out.printf("%-15s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
                 i++;
-<<<<<<< HEAD
                 if (getSalaryDiary()[i] == 0) {
                     System.out.printf("%-15s|", "  No data");
                 } else
                     System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
-=======
-                System.out.printf("%-14s|", formatter.format(getSalaryDiary()[i]));
->>>>>>> 4b71bb29c07916a64dc8e3f3b7d952f825f6b217
             }
             if (i < getSalaryDiary().length - 12) {
                 System.out.println();
-                System.out.printf("|%-14s|", "");
+                System.out.printf("|%-15s|", "");
             }
         }
         System.out.print(

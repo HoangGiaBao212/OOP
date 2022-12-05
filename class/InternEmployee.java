@@ -126,14 +126,10 @@ public class InternEmployee extends Employee {
             System.out.printf("%-14s|", getSalaryDiary()[i]);
             for (int j = 1; j <= 12; j++) {
                 i++;
-<<<<<<< HEAD
                 if (getSalaryDiary()[i] == 0) {
                     System.out.printf("%-15s|", "  No data");
                 } else
                     System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
-=======
-                System.out.printf("%-14s|", formatter.format(getSalaryDiary()[i]));
->>>>>>> 4b71bb29c07916a64dc8e3f3b7d952f825f6b217
             }
             if (i < getSalaryDiary().length - 12) {
                 System.out.println();
