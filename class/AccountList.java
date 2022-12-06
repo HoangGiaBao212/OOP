@@ -98,10 +98,10 @@ public class AccountList implements RoleOfManager {
                                     new OfficialEmployee(idEmpAdd, "Official Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account1;
-                            // MenuHandle.listDepartments[j].idEmployee =
-                            // Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
+                            MenuHandle.listDepartments[j].idEmployee = Arrays
+                                    .copyOf(MenuHandle.listDepartments[j].getIdEmployee(), temp + 1);
                             MenuHandle.listDepartments[j].getIdEmployee()[temp] = idEmpAdd;
-                            MenuHandle.listDepartments[j].setMembers(++temp);
+                            MenuHandle.listDepartments[j].setMembers(temp++);
                             // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String
                             // (account1.getEmployee().getIdEmp());
                             break;
@@ -112,12 +112,12 @@ public class AccountList implements RoleOfManager {
                                     new InternEmployee(idEmpAdd, "Intern Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account2;
-                            // MenuHandle.listDepartments[j].idEmployee =
-                            // Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
+                            MenuHandle.listDepartments[j].idEmployee = Arrays
+                                    .copyOf(MenuHandle.listDepartments[j].getIdEmployee(), temp + 1);
                             MenuHandle.listDepartments[j].getIdEmployee()[temp] = idEmpAdd;
                             // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String
                             // (account2.getEmployee().getIdEmp());
-                            MenuHandle.listDepartments[j].setMembers(++temp);
+                            MenuHandle.listDepartments[j].setMembers(temp++);
                             break;
                         default:
                             System.out.println("choice does not exist!");
@@ -316,15 +316,15 @@ public class AccountList implements RoleOfManager {
     @Override
     public void statistics() {
         MenuContent.quantityCount();
-        int count = 0,cnt = 0;
+        int count = 0, cnt = 0;
         for (int i = 0; i < MenuHandle.n; i++) {
-            if(MenuHandle.listAccount[i].getEmployee().getContract().getStatus().equals("Out of Date")){
+            if (MenuHandle.listAccount[i].getEmployee().getContract().getStatus().equals("Out of Date")) {
                 count++;
-            }else{
+            } else {
                 cnt++;
             }
         } // System.out.printf("Current we have %-5s employee working",MenuHandle.);
-        System.out.printf("We have %s employee is working now!!!",cnt);
-        System.out.printf("\nWe have %s employee is no longer working!!!",count);
+        System.out.printf("We have %s employee is working now!!!", cnt);
+        System.out.printf("\nWe have %s employee is no longer working!!!", count);
     }
 }
