@@ -129,11 +129,7 @@ public class InternEmployee extends Employee {
                 if (getSalaryDiary()[i] == 0) {
                     System.out.printf("   %-12s|", "No data");
                 } else
-<<<<<<< HEAD
-                    System.out.printf("%-15s|", formatter.format(getSalaryDiary()[i]));
-=======
                     System.out.printf("   %-12s|", formatter.format(getSalaryDiary()[i]));
->>>>>>> 8d025d92ea19742d53149eea15da1eed3f6cc814
             }
             if (i < getSalaryDiary().length - 12) {
                 System.out.println();
