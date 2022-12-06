@@ -3,15 +3,15 @@
 public abstract class Worker extends Person {
     protected long[] salaryDiary = new long[1];
 
-    public Worker() {
+    protected Worker() {
 
     }
 
-    public Worker(long[] salaryDiary) {
+    protected Worker(long[] salaryDiary) {
         this.salaryDiary = salaryDiary;
     }
 
-    public Worker(String name, int age, String gender, String email, String address, String phone) {
+    protected Worker(String name, int age, String gender, String email, String address, String phone) {
         super(name, age, gender, email, address, phone);
     }
 
