@@ -228,7 +228,17 @@ public class MenuHandle {
                     option(title);
                 }
                 case 7 -> {
+                    if (title.equals("Account Employee"))
+                        listAccounts.statistics();
+                    else if (title.equals("Contract"))
+                        listContract.statistics();
+                    else if (title.equals("Salary"))
+                        listSalary.statistics();
+                    else
+                        listDepartment.statistics();
+                    option(title);
                     // Thống kê
+                    break;
                 }
                 case 8 -> {
                     menu();
@@ -257,7 +267,7 @@ public class MenuHandle {
         String username;
         String password;
         System.out.println("--------------------------------------------------------------------");
-        System.out.println("|                                Login                             |");
+        System.out.println("|                              LOGIN                               |");
         System.out.println("--------------------------------------------------------------------");
         username = getUsername();
         System.out.print("==> Enter password: ");
@@ -295,12 +305,17 @@ public class MenuHandle {
                     listSalary.find(idEmp);
                     listContract.find(idEmp);
                     iForEmployee(idEmp);
+                    break;
                 }
                 case 2 -> {
                     listAccounts.edit(idEmp);
                     iForEmployee(idEmp);
+                    break;
                 }
-                case 3 -> MenuContent.noteBye();
+                case 3 -> {
+                    MenuContent.noteBye();
+                    break;
+                }
                 default -> {
                     MenuContent.choiceWrong();
                     break;
@@ -340,6 +355,7 @@ public class MenuHandle {
                     }
                 }
                 case 4 -> {
+                    listDepartment.edit(idEmp);
                     MenuContent.noteBye();
                     break;
                 }
@@ -356,9 +372,9 @@ public class MenuHandle {
 
     public static void iForManager() {
         clearScreen();
-        System.out.println("--------------------------------------------------------");
-        System.out.println("|                 Welcome back,Manager                 |");
-        System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("|                        Welcome back,Manager                      |");
+        System.out.println("--------------------------------------------------------------------");
         menu();
     }
 
@@ -443,7 +459,36 @@ public class MenuHandle {
         Date date = new Date();
         return new SimpleDateFormat(format).format(date);
     }
-}
 
+    // year = 12-6-2018
+    // start = 12-8-2018
+    // end = 12-6-2022
+    // year = 2020
+    // month = 6
+    public static boolean checkStatus(Account o, int year, int month) {
+        String txt;
+        String txt2;
+        try {
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // 02/12/2022
+            txt = sdf.format(o.getEmployee().getContract().getTimeStart());
+            txt2 = sdf.format(date);
+            String[] start = txt.split("/");
+            String[] end = txt2.split("/");
+            // for(int i = Integer.parseInt(start[2]);i < )
+            if (Integer.parseInt(start[2]) <= year && Integer.parseInt(end[2]) >= year) {
+                if (Integer.parseInt(start[1]) <= month) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } finally {
+            // return false;
+        }
+    }
+}
 // Đăng nhập với tư cách nhân viên xem thông tin cá nhân,xem ds nhân viên,xem ds
 // dự án,xem ds phòng ban

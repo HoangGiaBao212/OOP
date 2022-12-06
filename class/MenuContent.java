@@ -71,13 +71,13 @@ public class MenuContent {
     }
     public static void noteSuccess(String title) {
         System.out.println("-------------------------------------------------");
-        System.out.printf("|%15s %-15s|", title, "successful!              |");
+        System.out.printf("|           %10s %-10s  |", title, "successful!            ");
         System.out.println("\n-------------------------------------------------");
     }
 
     public static void noteFailure(String title) {
         System.out.println("-------------------------------------------------");
-        System.out.printf("|%-15s %-15s|", title, "failure!              ");
+        System.out.printf("|             %-10s %-10s |", title, "failure!              ");
         System.out.println("\n-------------------------------------------------");
     }
 
@@ -112,15 +112,6 @@ public class MenuContent {
         System.out.println("|                           Good Bye!                          |");
         System.out.println("----------------------------------------------------------------");
     }
-
-    public static void quantityCount(String any, int quantity) {
-
-        System.out.println("-------------------------------------------------------");
-        System.out.printf("| %s %s|", any.toUpperCase(), "QUANTITY");
-        System.out.println("-------------------------------------------------------");
-        System.out.printf("At the moment we all have %2d %2s", quantity, any);
-    }
-
     public static void menuIForEmployee() {
         System.out.println("     ----------------------------------");
         System.out.println("     | 1. View personal information   |");
@@ -145,5 +136,10 @@ public class MenuContent {
         System.out.println("     | 5. Exit                                    |");
         System.out.println("     ----------------------------------------------");
         System.out.print(" ==> Input choice: ");
+    }
+    public static void quantityCount(){
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("|                           STATISTICS QUANTITY                           |");
+        System.out.println("---------------------------------------------------------------------------");
     }
 }

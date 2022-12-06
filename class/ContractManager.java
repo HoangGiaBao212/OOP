@@ -36,17 +36,17 @@ public class ContractManager implements RoleOfManager {
             MenuContent.printNoData();
         } else {
             System.out.println(
-                    "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf(
-                    "|    %-15s|    %-15s|   %-15s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|    %-15s|",
+                    "|    %-15s|    %-20s|   %-15s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|    %-15s|",
                     "Contract ID", "Name", "Employee ID", "Gender", "Age", "Phone number", "Email", "Time start",
                     "Time end", "Status");
             System.out.println();
             System.out.println(
-                    "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (int i = 0; i < MenuHandle.n; i++) {
                 System.out.printf(
-                        "|    %-15s|    %-15s|   %-15s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|    %-15s|\n",
+                        "|    %-15s|    %-20s|   %-15s|   %-10s|   %-5s|   %-15s|    %-25s|   %-15s|    %-15s|    %-15s|\n",
                         MenuHandle.listAccount[i].getEmployee().getContract().getContractID(),
                         MenuHandle.listAccount[i].getEmployee().getName(),
                         MenuHandle.listAccount[i].getEmployee().getIdEmp(),
@@ -60,13 +60,14 @@ public class ContractManager implements RoleOfManager {
                                 .format(MenuHandle.listAccount[i].getEmployee().getContract().getTimeEnd()),
                         MenuHandle.listAccount[i].getEmployee().getContract().getStatus());
                 System.out.println(
-                        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                        "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
     }
 
     @Override
     public void add() {
+        boolean flag = false;
         System.out.println("---------------------------------------");
         System.out.println("|             ADD CONTRACT            |");
         System.out.println("---------------------------------------\n");
@@ -80,20 +81,24 @@ public class ContractManager implements RoleOfManager {
                         Contract contract = new Contract();
                         contract.input();
                         MenuHandle.listAccount[i].getEmployee().setContract(contract);
+                        flag = true;
+
                     }
                 }
             }
         } else {
             System.out.println("Employee is exits or don't have employee with id: " + idEmpAdd);
+        }   
+        if(!flag){
+            MenuContent.noteAddSuccess();
+        }else{
+            MenuContent.noteAddFailure();
         }
-
-        System.out.println("---------------------------------------------------------");
-        System.out.println("|               Add Contract Successful!                |");
-        System.out.println("---------------------------------------------------------");
     }
 
     @Override
     public void edit(String idEdit) {
+        boolean flag = false;
         if (idEdit == null) {
             System.out.println("----------------------------------------------------");
             System.out.println("|            EDIT INFORMATION IN CONTRACT          |");
@@ -135,18 +140,21 @@ public class ContractManager implements RoleOfManager {
                                         MenuHandle.listAccount[i].getEmployee().getContract()
                                                 .setStatus("Still Working");
                                     }
+                                    flag = true;
                                     break;
                                 default:
                                     MenuContent.noteBye();
                                     break;
                             }
                         }
+                        flag = true;
                         break;
                     case 2:
                         if (MenuHandle.listAccount[i].getEmployee().getContract().getContractID()
                                 .equalsIgnoreCase(idEdit)) {
                             MenuHandle.listAccount[i].getEmployee().getContract().input();
                         }
+                        flag = true;
                         break;
                     default:
                         MenuContent.choiceWrong();
@@ -154,7 +162,12 @@ public class ContractManager implements RoleOfManager {
                 }
             }
         }
-        MenuContent.noteChangeSuccess();
+        if(!flag){
+            MenuContent.noteChangeSuccess();
+        }else{
+            MenuContent.noteChangeFailure();
+        }
+        
     }
 
     @Override
@@ -233,9 +246,17 @@ public class ContractManager implements RoleOfManager {
 
     @Override
     public void statistics() {
-        MenuContent.quantityCount("Contract", MenuHandle.n);
-    }
-
-    public static void statistical() {
+        int count = 0,cnt = 0;
+        MenuContent.quantityCount();
+        for (int i = 0; i < MenuHandle.n; i++) {
+            if(MenuHandle.listAccount[i].getEmployee().getContract().getStatus().equals("Out of Date")){
+                count++;
+            }else{
+                cnt++;
+            }
+        } 
+        // System.out.printf("Current we have %-5s employee working",MenuHandle.);
+        System.out.printf("We have %s contract is working now!!!",cnt);
+        System.out.printf("\nWe have %s contract is out of date!!!",count);
     }
 }

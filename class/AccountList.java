@@ -98,10 +98,12 @@ public class AccountList implements RoleOfManager {
                                     new OfficialEmployee(idEmpAdd, "Official Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account1;
-                            // MenuHandle.listDepartments[j].idEmployee = Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
+                            // MenuHandle.listDepartments[j].idEmployee =
+                            // Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
                             MenuHandle.listDepartments[j].getIdEmployee()[temp] = idEmpAdd;
                             MenuHandle.listDepartments[j].setMembers(++temp);
-                            // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String (account1.getEmployee().getIdEmp());
+                            // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String
+                            // (account1.getEmployee().getIdEmp());
                             break;
                         case 2:
                             Account account2 = new Account();
@@ -110,9 +112,11 @@ public class AccountList implements RoleOfManager {
                                     new InternEmployee(idEmpAdd, "Intern Employee"));
                             MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n + 1);
                             MenuHandle.listAccount[MenuHandle.n++] = account2;
-                            // MenuHandle.listDepartments[j].idEmployee = Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
+                            // MenuHandle.listDepartments[j].idEmployee =
+                            // Arrays.copyOf(MenuHandle.listDepartments[j].getIdEmployee(),temp+1);
                             MenuHandle.listDepartments[j].getIdEmployee()[temp] = idEmpAdd;
-                            // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String (account2.getEmployee().getIdEmp());
+                            // MenuHandle.listDepartments[j].getIdEmployee()[temp] = new String
+                            // (account2.getEmployee().getIdEmp());
                             MenuHandle.listDepartments[j].setMembers(++temp);
                             break;
                         default:
@@ -127,6 +131,7 @@ public class AccountList implements RoleOfManager {
 
     @Override
     public void remove(String idRemove) {
+        boolean flag = false;
         // remove account
         System.out.println("-------------------------------------------------");
         System.out.println("|              REMOVE ACCOUNT                   |");
@@ -142,10 +147,11 @@ public class AccountList implements RoleOfManager {
                 }
                 MenuHandle.listAccount = Arrays.copyOf(MenuHandle.listAccount, MenuHandle.n - 1);
                 MenuHandle.n--;
+                flag = true;
                 break;
             }
         }
-        if (!MenuHandle.checkIdEmployee(idRemove)) {
+        if (!flag) {
             MenuContent.noteFailure("Remove");
         } else
             MenuContent.noteSuccess("Remove");
@@ -198,8 +204,9 @@ public class AccountList implements RoleOfManager {
                                 case 1:
                                     MenuContent.menuOptionTypeEmployee();
                                     key = Integer.parseInt(scanner.nextLine());
-                                    if(MenuHandle.listAccount[i].getEmployee().getPosition().equals("admin")){
-                                        System.out.println("----------------Admin cannot be change position----------------");
+                                    if (MenuHandle.listAccount[i].getEmployee().getPosition().equals("admin")) {
+                                        System.out.println(
+                                                "----------------Admin cannot be change position----------------");
                                         flag = true;
                                         break;
                                     }
@@ -213,17 +220,18 @@ public class AccountList implements RoleOfManager {
                                                     .setPosition("Official Employee");
                                             break;
                                         case 3:
-                                            if(MenuHandle.listAccount[i].getEmployee().getPosition().equals("Chief Of Department")){
+                                            if (MenuHandle.listAccount[i].getEmployee().getPosition()
+                                                    .equals("Chief Of Department")) {
                                                 System.out.println("You can't change into this position");
                                                 flag = true;
                                                 break;
-                                            }else{
+                                            } else {
                                                 MenuHandle.listAccount[i].getEmployee().setPosition("Intern Employee");
-                                            // Account account = new Account();
-                                            // account = MenuHandle.listAccount[i];
-                                            // account.setEmployee(new InternEmployee("CD001","Intern Employee"));
-                                            // MenuHandle.listAccount[i] = account;
-                                            break;
+                                                // Account account = new Account();
+                                                // account = MenuHandle.listAccount[i];
+                                                // account.setEmployee(new InternEmployee("CD001","Intern Employee"));
+                                                // MenuHandle.listAccount[i] = account;
+                                                break;
                                             }
 
                                         default:
@@ -273,13 +281,12 @@ public class AccountList implements RoleOfManager {
                         break;
                 }
             }
-            if(!flag){
+            if (!flag) {
                 MenuContent.noteChangeSuccess();
-            }
-            else{
+            } else {
                 MenuContent.noteChangeFailure();
             }
-            
+
         }
 
     }
@@ -308,6 +315,16 @@ public class AccountList implements RoleOfManager {
 
     @Override
     public void statistics() {
-        MenuContent.quantityCount("Account", MenuHandle.n);
+        MenuContent.quantityCount();
+        int count = 0,cnt = 0;
+        for (int i = 0; i < MenuHandle.n; i++) {
+            if(MenuHandle.listAccount[i].getEmployee().getContract().getStatus().equals("Out of Date")){
+                count++;
+            }else{
+                cnt++;
+            }
+        } // System.out.printf("Current we have %-5s employee working",MenuHandle.);
+        System.out.printf("We have %s employee is working now!!!",cnt);
+        System.out.printf("\nWe have %s employee is no longer working!!!",count);
     }
 }

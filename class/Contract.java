@@ -74,6 +74,8 @@ public class Contract implements InOut {
             setTimeEnd(MenuHandle.getInputDate());
             if (timeEnd.after(timeStart) == false) {
                 System.out.println("Time End incorrect");
+                System.out.print("Enter time End: ");
+                setTimeEnd(MenuHandle.getInputDate());
             }
 
         } while (timeEnd.after(timeStart) == false);
